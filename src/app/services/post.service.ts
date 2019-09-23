@@ -22,4 +22,8 @@ export class PostService {
   getNews(): Observable<Post[]> {
     return this.http.get<Post[]>(this.postsUrl + '/news', httpOptions);
   }
+
+  getAds(): Observable<Post[]> {
+    return this.http.get<Post[]>(this.postsUrl + '/ads', httpOptions);
+  }
 }
