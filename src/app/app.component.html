@@ -1,1 +1,26 @@
-<router-outlet></router-outlet>
+<!-- Navigation -->
+<app-top-nav-bar></app-top-nav-bar>
+
+<!-- Page Content -->
+
+<div class="container container-fluid">
+
+  <div class="row">
+
+    <div class="col-lg-8">
+      <router-outlet></router-outlet>
+    </div>
+
+    <!-- Sidebar Widgets Column -->
+    <div id="sidebar" class="col-md-4">
+      <app-sidebar></app-sidebar>
+    </div>
+
+  </div>
+  <!-- /.row -->
+
+</div>
+<!-- /.container -->
+
+<!-- Footer -->
+<!--<app-footer></app-footer>-->
