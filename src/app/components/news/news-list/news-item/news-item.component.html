@@ -2,8 +2,7 @@
   <header>
     <h1>{{news.title}}</h1>
     <p>By {{news.author.firstName + ' ' + news.author.lastName}} at {{news.publishDate | date: 'short' : 'GTM+1'}}</p>
-    <!-- TODO create categories -->
-    <h3>In category: {{news.postCategory}}</h3>
+    <h3>In category: {{news.category | lowercase}}</h3>
   </header>
   <section>
     <p>{{news.postBody}}</p>
