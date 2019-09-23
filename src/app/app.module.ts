@@ -8,6 +8,7 @@ import {HomeComponent} from './components/home/home.component';
 import {NewsListComponent} from './components/news/news-list/news-list.component';
 import {NewsItemComponent} from './components/news/news-list/news-item/news-item.component';
 import {BsDropdownModule, ModalModule, TooltipModule} from 'ngx-bootstrap';
+import { TopNavBarComponent } from './components/home/top-nav-bar/top-nav-bar.component';
 
 @NgModule({
   declarations: [
@@ -15,7 +16,8 @@ import {BsDropdownModule, ModalModule, TooltipModule} from 'ngx-bootstrap';
     HomeComponent,
     NewsComponent,
     NewsListComponent,
-    NewsItemComponent
+    NewsItemComponent,
+    TopNavBarComponent
   ],
   imports: [
     BrowserModule,
