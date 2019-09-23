@@ -9,9 +9,9 @@ body {
 
 .logo {
   position: relative;
-  width: 2em;
-  height: 2em;
-  font-size: 4vw;
+  width: 8vw;
+  height: 2vw;
+  font-size: 2vw;
   font-weight: bold;
   font-style: italic;
 }
@@ -23,12 +23,11 @@ body {
   left: 0;
   text-align: center;
   width: 100%;
-  animation: rotate 4s infinite;
-  animation-timing-function: linear;
+  animation: straightLine 4s ease-in infinite;
 }
 
 .logo::before {
-  color: #009900;
+  color: #83be03;
 }
 
 .logo::after {
@@ -36,10 +35,8 @@ body {
   animation-delay: -2s;
 }
 
-@keyframes rotate {
-  0%   {left: -2%; top: -2%;}
-  25%  {left: 2%; top: -2%;}
-  50%  {left: 2%; top: 2%;}
-  75%  {left: -2%; top: 2%;}
-  100% {left: -2%; top: -2%;}
+@keyframes straightLine {
+  50% {
+    transform: translate3D(20px, -20px, 0);
+  }
 }
