@@ -1,6 +1,8 @@
+import {Member} from './Member';
+
 export class Post {
   title: string;
-  author: string;
+  author: Member;
   publishDate: Date;
   postBody: string;
   postCategory: string;

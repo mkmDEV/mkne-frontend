@@ -1,8 +1,7 @@
 <article>
   <header>
     <h1>{{news.title}}</h1>
-    <!--TODO create member model to show instead of Object object-->
-    <p>By: {{news.author}} at {{news.publishDate | date: 'medium' : 'GTM+1'}}</p>
+    <p>By {{news.author.firstName + ' ' + news.author.lastName}} at {{news.publishDate | date: 'short' : 'GTM+1'}}</p>
     <!-- TODO create categories -->
     <h3>In category: {{news.postCategory}}</h3>
   </header>
