@@ -9,6 +9,7 @@ import {NewsListComponent} from './components/news/news-list/news-list.component
 import {NewsItemComponent} from './components/news/news-list/news-item/news-item.component';
 import {BsDropdownModule, ModalModule, TooltipModule} from 'ngx-bootstrap';
 import { TopNavBarComponent } from './components/home/top-nav-bar/top-nav-bar.component';
+import { AnimatedLogoComponent } from './components/home/sidebar/animated-logo/animated-logo.component';
 
 @NgModule({
   declarations: [
@@ -17,7 +18,8 @@ import { TopNavBarComponent } from './components/home/top-nav-bar/top-nav-bar.co
     NewsComponent,
     NewsListComponent,
     NewsItemComponent,
-    TopNavBarComponent
+    TopNavBarComponent,
+    AnimatedLogoComponent
   ],
   imports: [
     BrowserModule,

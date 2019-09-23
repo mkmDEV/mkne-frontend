@@ -1,0 +1,45 @@
+* {
+  padding: 0;
+  margin: 0 auto;
+}
+
+body {
+  overflow: hidden;
+}
+
+.logo {
+  position: relative;
+  width: 2em;
+  height: 2em;
+  font-size: 4vw;
+  font-weight: bold;
+  font-style: italic;
+}
+
+.logo::before, .logo::after {
+  content: attr(data-logo);
+  position: absolute;
+  z-index: -1;
+  left: 0;
+  text-align: center;
+  width: 100%;
+  animation: rotate 4s infinite;
+  animation-timing-function: linear;
+}
+
+.logo::before {
+  color: #009900;
+}
+
+.logo::after {
+  color: #fff;
+  animation-delay: -2s;
+}
+
+@keyframes rotate {
+  0%   {left: -2%; top: -2%;}
+  25%  {left: 2%; top: -2%;}
+  50%  {left: 2%; top: 2%;}
+  75%  {left: -2%; top: 2%;}
+  100% {left: -2%; top: -2%;}
+}
