@@ -13,6 +13,7 @@ import { AnimatedLogoComponent } from './components/home/animated-logo/animated-
 import { AdvertsComponent } from './components/home/sidebar/adverts/adverts.component';
 import { SidebarComponent } from './components/home/sidebar/sidebar.component';
 import { AdvertComponent } from './components/home/sidebar/adverts/advert/advert.component';
+import {FontAwesomeModule} from '@fortawesome/angular-fontawesome';
 
 @NgModule({
   declarations: [
@@ -29,6 +30,7 @@ import { AdvertComponent } from './components/home/sidebar/adverts/advert/advert
   ],
   imports: [
     BrowserModule,
+    FontAwesomeModule,
     AppRoutingModule,
     BsDropdownModule.forRoot(),
     TooltipModule.forRoot(),
