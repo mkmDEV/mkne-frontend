@@ -1,0 +1,15 @@
+<article>
+  <header class="d-flex flex-row mb-2">
+    <div class="p-3">
+      <fa-icon [icon]="faDog"></fa-icon>
+    </div>
+    <div class="p-2">
+      <h1>{{news.title}}</h1>
+      <p>By {{news.author.firstName + ' ' + news.author.lastName}} at {{news.publishDate | date: 'short' : 'GTM+1'}}</p>
+      <h3>In category: {{news.category | lowercase}}</h3>
+    </div>
+  </header>
+  <section>
+    <p>{{news.postBody}}</p>
+  </section>
+</article>

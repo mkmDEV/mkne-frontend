@@ -5,5 +5,5 @@ export class Post {
   author: Member;
   publishDate: Date;
   postBody: string;
-  cűategory: string;
+  category: string;
 }
