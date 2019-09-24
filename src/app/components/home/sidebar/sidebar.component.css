@@ -1,3 +1,4 @@
-* {
-  margin-left:2vw;
+.card {
+  background: transparent !important;
+  border: 0;
 }
