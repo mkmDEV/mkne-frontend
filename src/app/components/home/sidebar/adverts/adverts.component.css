@@ -1,0 +1,8 @@
+app-advert {
+  padding: 1vw;
+  display: inline-block;
+  background: rgba(255, 255, 255, 0.8);
+  border-radius: 1vw 3vw 2vw;
+  box-shadow: 10px 10px 5px grey;
+  box-sizing: content-box;
+}

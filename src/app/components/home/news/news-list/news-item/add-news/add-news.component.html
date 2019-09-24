@@ -1,1 +1,32 @@
-<p>add-news works!</p>
+<div class="add-post">
+  <h2>Compose post</h2>
+  <form>
+    <div class="form-group">
+      <label for="new-post-author">Author</label>
+      <input class="form-control" id="new-post-author" type="text" placeholder="Author name" readonly>
+    </div>
+    <div class="form-group">
+      <label for="new-post-title">Title</label>
+      <input id="new-post-title" class="form-control form-control-lg" type="text" placeholder="New Post">
+    </div>
+    <div class="form-group form-check">
+      <input type="checkbox" class="form-check-input" id="new-post-is-published">
+      <label class="form-check-label" for="new-post-is-published">Publish</label>
+    </div>
+    <div class="form-group">
+      <label for="new-post-category">Category</label>
+      <select class="form-control" id="new-post-category">
+        <option>News</option>
+        <option>Report</option>
+        <option>Conference</option>
+        <option>Invitation</option>
+        <option>Advert</option>
+      </select>
+    </div>
+    <div class="form-group">
+      <label for="new-post-body">Post</label>
+      <textarea class="form-control" id="new-post-body" rows="3"></textarea>
+    </div>
+    <button type="submit" class="btn btn-lg btn-success">Save post</button>
+  </form>
+</div>

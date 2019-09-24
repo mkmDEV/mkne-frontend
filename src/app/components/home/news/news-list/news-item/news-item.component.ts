@@ -1,6 +1,5 @@
 import {Component, Input, OnInit} from '@angular/core';
 import {Post} from '../../../../../models/Post';
-import {faDog} from '@fortawesome/free-solid-svg-icons';
 
 @Component({
   selector: 'app-news-item',
@@ -9,7 +8,7 @@ import {faDog} from '@fortawesome/free-solid-svg-icons';
 })
 export class NewsItemComponent implements OnInit {
   @Input() news: Post;
-  faDog = faDog;
+  puli = 'http://mkne.hu/design/puli.gif';
   constructor() { }
 
   ngOnInit() {
