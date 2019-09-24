@@ -2,4 +2,4 @@
 
 - [ ] `FEATURE` Form input
 - [ ] `FEATURE` footer
-- [ ] `ISSUE` fix layout bugs 
+- [x] `ISSUE` fix layout bugs 
