@@ -1,6 +1,6 @@
 <div class="add-post">
   <h2>Compose post</h2>
-  <form (ngSubmit)="onSubmit()" enctype="multipart/form-data" #newPost ngForm>
+  <form (ngSubmit)="onSubmit(f)" #f="ngForm">
     <div class="form-group">
       <label for="new-post-author">Author</label>
       <!--TODO logged in user's username -->
