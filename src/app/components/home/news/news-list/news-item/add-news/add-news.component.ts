@@ -9,6 +9,8 @@ import {NgForm} from '@angular/forms';
 export class AddNewsComponent implements OnInit {
   // TODO: to get logged in member's name
   @ViewChild('f', {static: false}) newPostForm: NgForm;
+  defaultCategory = 'NEWS';
+  loggedInUsername = 'Teszt Elek';
 
   constructor() {
   }
@@ -16,4 +18,7 @@ export class AddNewsComponent implements OnInit {
   ngOnInit() {
   }
 
+  onSubmit() {
+    console.log(this.newPostForm);
+  }
 }
