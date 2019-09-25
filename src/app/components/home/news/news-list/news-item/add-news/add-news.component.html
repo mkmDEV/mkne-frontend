@@ -10,7 +10,6 @@
              type="text"
              placeholder="Author name"
              ngModel
-             required
              readonly>
     </div>
     <div class="form-group">
@@ -27,6 +26,7 @@
              id="new-post-is-published"
              name="isPublished"
              type="checkbox"
+             value=""
              ngModel>
       <label class="form-check-label" for="new-post-is-published">Publish</label>
     </div>
@@ -35,6 +35,7 @@
       <select class="form-control"
               id="new-post-category"
               name="category"
+              #category="ngModel"
               ngModel
               required>
         <option>News</option>
@@ -43,6 +44,7 @@
         <option>Invitation</option>
         <option>Advert</option>
       </select>
+      <small class="form-text text-danger" *ngIf="!category.valid && category.touched">Please choose a category!</small>
     </div>
     <div class="form-group">
       <label for="new-post-body">Post</label>
@@ -53,6 +55,9 @@
                 ngModel>
       </textarea>
     </div>
-    <button class="btn btn-lg btn-success float-right" type="submit">Save post</button>
+    <button class="btn btn-lg btn-success float-right"
+            type="submit"
+            [disabled]="!f.valid">Save post
+    </button>
   </form>
 </div>
