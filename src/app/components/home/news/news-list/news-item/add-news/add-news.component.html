@@ -8,8 +8,7 @@
              id="new-post-author"
              name="author"
              type="text"
-             placeholder="Author name"
-             ngModel
+             [ngModel]="loggedInUsername"
              readonly>
     </div>
     <div class="form-group">
@@ -36,10 +35,10 @@
               id="new-post-category"
               name="category"
               #category="ngModel"
-              ngModel
+              [ngModel]="defaultCategory"
               required>
         <!--  TODO: Set news default value-->
-        <option value="NEWS" selected>News</option>
+        <option value="NEWS">News</option>
         <option value="REPORT">Report</option>
         <option value="CONFERENCE">Conference</option>
         <option value="INVITATION">Invitation</option>
