@@ -11,6 +11,15 @@ export class AddNewsComponent implements OnInit {
   @ViewChild('f', {static: false}) newPostForm: NgForm;
   defaultCategory = 'NEWS';
   loggedInUsername = 'Teszt Elek';
+  isPublished = false;
+  submitted = false;
+  post = {
+    author: '',
+    title: '',
+    isPublished: false,
+    category: '',
+    postBody: ''
+  };
 
   constructor() {
   }
@@ -18,7 +27,15 @@ export class AddNewsComponent implements OnInit {
   ngOnInit() {
   }
 
-  onSubmit() {
+  onSubmit(f: NgForm) {
     console.log(this.newPostForm);
+    this.submitted = true;
+    this.post.author = this.newPostForm.value.newPostData.author;
+    this.post.title = this.newPostForm.value.newPostData.title;
+    this.post.isPublished = this.newPostForm.value.newPostData.isPublished;
+    this.post.category = this.newPostForm.value.newPostData.category;
+    this.post.postBody = this.newPostForm.value.newPostData.postBody;
+
+    this.newPostForm.reset();
   }
 }

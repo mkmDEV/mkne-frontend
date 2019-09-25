@@ -1,63 +1,80 @@
 <div class="add-post">
   <h2>Compose post</h2>
   <form (ngSubmit)="onSubmit(f)" #f="ngForm">
-    <div class="form-group">
-      <label for="new-post-author">Author</label>
-      <!--TODO logged in user's username -->
-      <input class="form-control"
-             id="new-post-author"
-             name="author"
-             type="text"
-             [ngModel]="loggedInUsername"
-             readonly>
-    </div>
-    <div class="form-group">
-      <label for="new-post-title">Title</label>
-      <input class="form-control form-control-lg"
-             id="new-post-title"
-             name="title"
-             type="text"
-             placeholder="New Post"
-             ngModel>
-    </div>
-    <div class="form-group form-check">
-      <input class="form-check-input"
-             id="new-post-is-published"
-             name="isPublished"
-             type="checkbox"
-             value=""
-             ngModel>
-      <label class="form-check-label" for="new-post-is-published">Publish</label>
-    </div>
-    <div class="form-group">
-      <label for="new-post-category">Category</label>
-      <select class="form-control"
-              id="new-post-category"
-              name="category"
-              #category="ngModel"
-              [ngModel]="defaultCategory"
-              required>
-        <!--  TODO: Set news default value-->
-        <option value="NEWS">News</option>
-        <option value="REPORT">Report</option>
-        <option value="CONFERENCE">Conference</option>
-        <option value="INVITATION">Invitation</option>
-        <option value="ADVERT">Advert</option>
-      </select>
-      <small class="form-text text-danger" *ngIf="!category.valid && category.touched">Please choose a category!</small>
-    </div>
-    <div class="form-group">
-      <label for="new-post-body">Post</label>
-      <textarea class="form-control"
-                id="new-post-body"
-                name="postBody"
-                rows="3"
-                ngModel>
+    <div class="new-post-data"
+         ngModelGroup="newPostData"
+         #newPostData="ngModelGroup">
+      <div class="form-group">
+        <label for="new-post-author">Author</label>
+        <!--TODO logged in user's username -->
+        <input class="form-control"
+               id="new-post-author"
+               name="author"
+               type="text"
+               [ngModel]="loggedInUsername"
+               readonly>
+      </div>
+      <div class="form-group">
+        <label for="new-post-title">Title</label>
+        <input class="form-control form-control-lg"
+               id="new-post-title"
+               name="title"
+               type="text"
+               placeholder="New Post"
+               ngModel>
+      </div>
+      <div class="form-group form-check">
+        <input class="form-check-input"
+               id="new-post-is-published"
+               name="isPublished"
+               type="checkbox"
+               [(ngModel)]="isPublished">
+        <label class="form-check-label" for="new-post-is-published">Publish</label>
+      </div>
+      <div class="form-group">
+        <label for="new-post-category">Category</label>
+        <select class="form-control"
+                id="new-post-category"
+                name="category"
+                #category="ngModel"
+                [ngModel]="defaultCategory"
+                required>
+          <!--  TODO: Set news default value-->
+          <option value="NEWS">News</option>
+          <option value="REPORT">Report</option>
+          <option value="CONFERENCE">Conference</option>
+          <option value="INVITATION">Invitation</option>
+          <option value="ADVERT">Advert</option>
+        </select>
+        <small class="form-text text-danger" *ngIf="!category.valid && category.touched">Please choose a
+          category!</small>
+      </div>
+      <div class="form-group">
+        <label for="new-post-body">Post</label>
+        <textarea class="form-control"
+                  id="new-post-body"
+                  name="postBody"
+                  rows="3"
+                  ngModel
+                  required>
       </textarea>
+      </div>
+      <p class="form-text text-danger" *ngIf="!newPostData.valid && newPostData.touched">New post data is invalid.</p>
     </div>
     <button class="btn btn-lg btn-success float-right"
             type="submit"
             [disabled]="!f.valid">Save post
     </button>
   </form>
+</div>
+<div class="clearfix"></div>
+<div class="row" *ngIf="submitted">
+  <div class="col-lg-4 align-content-center">
+    <p>
+      author: {{ post.author }}<br/>
+      title: {{ post.title }}<br/>
+      category: {{ post.category }}<br/>
+      isPublished: {{ post.isPublished }}<br/>
+      postBody: {{ post.postBody }}<br/>
+  </div>
 </div>
