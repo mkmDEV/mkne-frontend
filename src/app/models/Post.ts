@@ -6,4 +6,5 @@ export class Post {
   publishDate: Date;
   postBody: string;
   category: string;
+  isPublished: boolean;
 }
