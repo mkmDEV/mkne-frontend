@@ -1,21 +1,40 @@
 <div class="add-post">
   <h2>Compose post</h2>
-  <form>
+  <form (ngSubmit)="onSubmit()" enctype="multipart/form-data" #newPost ngForm>
     <div class="form-group">
       <label for="new-post-author">Author</label>
-      <input class="form-control" id="new-post-author" type="text" placeholder="Author name" readonly>
+      <!--TODO logged in user's username -->
+      <input class="form-control"
+             id="new-post-author"
+             name="author"
+             type="text"
+             placeholder="Author name"
+             ngModel
+             readonly>
     </div>
     <div class="form-group">
       <label for="new-post-title">Title</label>
-      <input id="new-post-title" class="form-control form-control-lg" type="text" placeholder="New Post">
+      <input class="form-control form-control-lg"
+             id="new-post-title"
+             name="title"
+             type="text"
+             placeholder="New Post"
+             ngModel>
     </div>
     <div class="form-group form-check">
-      <input type="checkbox" class="form-check-input" id="new-post-is-published">
+      <input class="form-check-input"
+             id="new-post-is-published"
+             name="isPublished"
+             type="checkbox"
+             ngModel>
       <label class="form-check-label" for="new-post-is-published">Publish</label>
     </div>
     <div class="form-group">
       <label for="new-post-category">Category</label>
-      <select class="form-control" id="new-post-category">
+      <select class="form-control"
+              id="new-post-category"
+              name="category"
+              ngModel>
         <option>News</option>
         <option>Report</option>
         <option>Conference</option>
@@ -25,8 +44,8 @@
     </div>
     <div class="form-group">
       <label for="new-post-body">Post</label>
-      <textarea class="form-control" id="new-post-body" rows="3"></textarea>
+      <textarea class="form-control" id="new-post-body" rows="3" [(ngModel)]="postBody" name="postBody"></textarea>
     </div>
-    <button type="submit" class="btn btn-lg btn-success">Save post</button>
+    <input type="submit" value="Save post" class="btn btn-lg btn-success">
   </form>
 </div>
