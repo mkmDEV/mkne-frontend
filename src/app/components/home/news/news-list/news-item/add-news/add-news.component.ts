@@ -1,4 +1,5 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, OnInit, ViewChild} from '@angular/core';
+import {NgForm} from '@angular/forms';
 
 @Component({
   selector: 'app-add-news',
@@ -6,8 +7,11 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./add-news.component.css']
 })
 export class AddNewsComponent implements OnInit {
+  // TODO: to get logged in member's name
+  @ViewChild('f', {static: false}) newPostForm: NgForm;
 
-  constructor() { }
+  constructor() {
+  }
 
   ngOnInit() {
   }
