@@ -38,11 +38,12 @@
               #category="ngModel"
               ngModel
               required>
-        <option>News</option>
-        <option>Report</option>
-        <option>Conference</option>
-        <option>Invitation</option>
-        <option>Advert</option>
+        <!--  TODO: Set news default value-->
+        <option value="NEWS" selected>News</option>
+        <option value="REPORT">Report</option>
+        <option value="CONFERENCE">Conference</option>
+        <option value="INVITATION">Invitation</option>
+        <option value="ADVERT">Advert</option>
       </select>
       <small class="form-text text-danger" *ngIf="!category.valid && category.touched">Please choose a category!</small>
     </div>
