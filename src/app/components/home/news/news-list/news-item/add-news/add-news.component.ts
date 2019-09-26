@@ -1,5 +1,8 @@
 import {Component, OnInit, ViewChild} from '@angular/core';
 import {NgForm} from '@angular/forms';
+import {PostService} from '../../../../../../services/post.service';
+import {MemberService} from '../../../../../../services/member.service';
+import {faPlusCircle} from '@fortawesome/free-solid-svg-icons';
 
 @Component({
   selector: 'app-add-news',
@@ -11,21 +14,29 @@ export class AddNewsComponent implements OnInit {
   @ViewChild('f', {static: false}) newPostForm: NgForm;
   faPlus = faPlusCircle;
   defaultCategory = 'NEWS';
-  loggedInUsername = 'Teszt Elek';
+  loggedInUsername = '';
   isPublished = false;
   submitted = false;
   post = {
-    author: '',
+    id: 0,
+    author: null,
     title: '',
     isPublished: false,
+    publishDate: null,
     category: '',
     postBody: ''
   };
 
-  constructor() {
+  constructor(
+    private postService: PostService,
+    private memberService: MemberService
+  ) {
   }
 
   ngOnInit() {
+    this.post.author = this.memberService.getDummyUser();
+    this.loggedInUsername = this.post.author.username;
+    console.log(this.loggedInUsername);
   }
 
   onSubmit(f: NgForm) {
@@ -36,7 +47,7 @@ export class AddNewsComponent implements OnInit {
     this.post.isPublished = this.newPostForm.value.newPostData.isPublished;
     this.post.category = this.newPostForm.value.newPostData.category;
     this.post.postBody = this.newPostForm.value.newPostData.postBody;
-
+    this.postService.addNews(this.post);
     this.newPostForm.reset();
   }
 }
