@@ -16,6 +16,7 @@ import {AdvertComponent} from './components/home/sidebar/adverts/advert/advert.c
 import {FontAwesomeModule} from '@fortawesome/angular-fontawesome';
 import {AddNewsComponent} from './components/home/news/news-list/news-item/add-news/add-news.component';
 import {FormsModule} from '@angular/forms';
+import {HttpClientModule} from '@angular/common/http';
 
 @NgModule({
   declarations: [
@@ -33,6 +34,7 @@ import {FormsModule} from '@angular/forms';
   ],
   imports: [
     BrowserModule,
+    HttpClientModule,
     FontAwesomeModule,
     AppRoutingModule,
     BsDropdownModule.forRoot(),
