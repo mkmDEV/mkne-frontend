@@ -1,12 +1,22 @@
 <article>
   <header class="d-flex flex-row mb-2">
-    <div class="p-3">
-      <img src="{{puli}}" alt="puli" />
+    <div class="p-3 col-1">
+      <img src="{{puli}}" alt="puli"/>
     </div>
-    <div class="p-2">
+    <div class="p-2 col-7">
       <h1>{{news.title}}</h1>
       <p>By {{news.author.firstName + ' ' + news.author.lastName}} at {{news.publishDate | date: 'short' : 'GTM+1'}}</p>
       <h3>In category: {{news.category | lowercase}}</h3>
+    </div>
+    <div class="p-2 col-1 float-right">
+      <ul class="list-group list-inline list-group-horizontal">
+        <li class="list-inline-item ml-2">
+          <fa-icon size="2x" title="edit" [icon]="faPen"></fa-icon>
+        </li>
+        <li class="list-inline-item ml-2">
+          <fa-icon size="2x" title="delete" [icon]="faTrash"></fa-icon>
+        </li>
+      </ul>
     </div>
   </header>
   <section>
