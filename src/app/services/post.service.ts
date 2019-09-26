@@ -12,6 +12,7 @@ import {catchError, tap} from 'rxjs/operators';
 export class PostService {
 
   private postsUrl = 'http://localhost:8080/posts';
+  private newsUrl = this.postsUrl + '/news';
 
   httpOptions = {
     headers: new HttpHeaders({'Content-Type': 'application/json'})
@@ -23,7 +24,7 @@ export class PostService {
   }
 
   getNews(): Observable<Post[]> {
-    return this.http.get<Post[]>(this.postsUrl + '/news')
+    return this.http.get<Post[]>(this.newsUrl)
       .pipe(
         tap($ => this.log('fetched news')),
         catchError(this.handleError<Post[]>('getNews', []))
