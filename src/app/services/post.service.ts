@@ -41,6 +41,13 @@ export class PostService {
 
 //  TODO GET one post / news, create http.post for new posts
 
+  addNews(news: Post): Observable<Post> {
+    return this.http.post<Post>(this.postsUrl, news, this.httpOptions).pipe(
+      tap((newNews: Post) => this.log(`added hero width id=${newNews.id}`)),
+      catchError(this.handleError<Post>('addNews'))
+    );
+  }
+
   /**
    * Handle Http operation that failed.
    * Let the app continue.
