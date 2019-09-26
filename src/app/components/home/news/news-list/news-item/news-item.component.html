@@ -10,11 +10,15 @@
     </div>
     <div class="p-2 col-1 float-right">
       <ul class="list-group list-inline list-group-horizontal">
-        <li class="list-inline-item ml-2">
-          <fa-icon size="2x" title="edit" [icon]="faPen"></fa-icon>
+        <li class="list-inline-item">
+          <button class="btn btn-warning">
+            <fa-icon size="lg" [fixedWidth]="true" title="edit" [icon]="faPen"></fa-icon>
+          </button>
         </li>
-        <li class="list-inline-item ml-2">
-          <fa-icon size="2x" title="delete" [icon]="faTrash"></fa-icon>
+        <li class="list-inline-item">
+          <button class="btn btn-danger">
+            <fa-icon size="lg" [fixedWidth]="true" title="delete" [icon]="faTrash"></fa-icon>
+          </button>
         </li>
       </ul>
     </div>
