@@ -9,6 +9,7 @@ import {NgForm} from '@angular/forms';
 export class AddNewsComponent implements OnInit {
   // TODO: to get logged in member's name
   @ViewChild('f', {static: false}) newPostForm: NgForm;
+  faPlus = faPlusCircle;
   defaultCategory = 'NEWS';
   loggedInUsername = 'Teszt Elek';
   isPublished = false;
