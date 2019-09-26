@@ -39,13 +39,13 @@ export class PostService {
       );
   }
 
-//  TODO GET one post / news, create http.post for new posts
+//  TODO
+//   GET one post / news
 
   addNews(news: Post): Observable<Post> {
     return this.http.post<Post>(this.postsUrl, news, this.httpOptions).pipe(
-      tap((newNews: Post) => this.log(`added hero width id=${newNews.id}`)),
-      catchError(this.handleError<Post>('addNews'))
-    );
+      tap((newNews: Post) => this.log(`added news width id=${newNews.id}`)),
+      catchError(this.handleError<Post>('addNews')));
   }
 
   /**
