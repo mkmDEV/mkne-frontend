@@ -15,7 +15,7 @@ export class AddNewsComponent implements OnInit {
   @ViewChild('f', {static: false}) newPostForm: NgForm;
   faPlus = faPlusCircle;
   defaultCategory = 'NEWS';
-  loggedInUsername = 'test';
+  loggedInUsername = '';
   isPublished = false;
   submitted = false;
   post = {
@@ -38,14 +38,12 @@ export class AddNewsComponent implements OnInit {
     this.memberService.getDummyUser().subscribe(author => {
       this.post.author = author;
       this.loggedInUsername = this.post.author.username;
-      console.log(this.post.author.username);
     });
   }
 
   onSubmit(f: NgForm) {
     console.log(this.newPostForm);
     this.submitted = true;
-    // this.post.author = this.newPostForm.value.newPostData.author;
     this.post.title = this.newPostForm.value.newPostData.title;
     this.post.isPublished = this.newPostForm.value.newPostData.isPublished;
     this.post.category = this.newPostForm.value.newPostData.category;
