@@ -15,6 +15,8 @@ import {SidebarComponent} from './components/home/sidebar/sidebar.component';
 import {AdvertComponent} from './components/home/sidebar/adverts/advert/advert.component';
 import {FontAwesomeModule} from '@fortawesome/angular-fontawesome';
 import {AddNewsComponent} from './components/home/news/news-list/news-item/add-news/add-news.component';
+import {FormsModule} from '@angular/forms';
+import {HttpClientModule} from '@angular/common/http';
 
 @NgModule({
   declarations: [
@@ -32,11 +34,13 @@ import {AddNewsComponent} from './components/home/news/news-list/news-item/add-n
   ],
   imports: [
     BrowserModule,
+    HttpClientModule,
     FontAwesomeModule,
     AppRoutingModule,
     BsDropdownModule.forRoot(),
     TooltipModule.forRoot(),
-    ModalModule.forRoot()
+    ModalModule.forRoot(),
+    FormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]
