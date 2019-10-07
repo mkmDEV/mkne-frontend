@@ -6,7 +6,6 @@
          #newPostData="ngModelGroup">
       <div class="form-group">
         <label for="new-post-author">Author</label>
-        <!--TODO logged in user's username -->
         <input class="form-control"
                id="new-post-author"
                name="author"
@@ -39,7 +38,6 @@
                 #category="ngModel"
                 [ngModel]="defaultCategory"
                 required>
-          <!--  TODO: Set news default value-->
           <option value="NEWS">News</option>
           <option value="REPORT">Report</option>
           <option value="CONFERENCE">Conference</option>
@@ -68,15 +66,4 @@
       Save post
     </button>
   </form>
-</div>
-<div class="clearfix"></div>
-<div class="row" *ngIf="submitted">
-  <div class="col-lg-4 align-content-center">
-    <p>
-      author: {{ post.author }}<br/>
-      title: {{ post.title }}<br/>
-      category: {{ post.category }}<br/>
-      isPublished: {{ post.isPublished }}<br/>
-      postBody: {{ post.postBody }}<br/>
-  </div>
 </div>

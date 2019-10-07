@@ -11,7 +11,6 @@ import {Member} from '../../../../../../models/Member';
   styleUrls: ['./add-news.component.css']
 })
 export class AddNewsComponent implements OnInit {
-  // TODO: to get logged in member's name
   @ViewChild('f', {static: false}) newPostForm: NgForm;
   faPlus = faPlusCircle;
   defaultCategory = 'NEWS';
