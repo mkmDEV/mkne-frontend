@@ -38,9 +38,6 @@ export class PostService {
       );
   }
 
-//  TODO
-//   GET one post / news
-
   addNews(news: Post): Observable<Post> {
     return this.http.post<Post>(this.postsUrl, news, this.httpOptions).pipe(
       tap((newNews: Post) => this.log(`added news width id=${newNews.id}`)),
@@ -56,10 +53,8 @@ export class PostService {
   private handleError<T>(operation = 'operation', result?: T) {
     return (error: any): Observable<T> => {
 
-      // TODO: send the error to remote logging infrastructure
       console.error(error); // log to console instead
 
-      // TODO: better job of transforming error for user consumption
       this.log(`${operation} failed: ${error.message}`);
 
       // Let the app keep running by returning an empty result.
