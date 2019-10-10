@@ -7,7 +7,7 @@ import {NewsComponent} from './components/home/news/news.component';
 import {HomeComponent} from './components/home/home.component';
 import {NewsListComponent} from './components/home/news/news-list/news-list.component';
 import {NewsItemComponent} from './components/home/news/news-list/news-item/news-item.component';
-import {BsDropdownModule, ModalModule, TooltipModule} from 'ngx-bootstrap';
+import {BsDropdownModule, ModalModule, PopoverModule, TooltipModule} from 'ngx-bootstrap';
 import {TopNavBarComponent} from './components/home/top-nav-bar/top-nav-bar.component';
 import {AnimatedLogoComponent} from './components/home/animated-logo/animated-logo.component';
 import {AdvertsComponent} from './components/home/sidebar/adverts/adverts.component';
@@ -17,6 +17,8 @@ import {FontAwesomeModule} from '@fortawesome/angular-fontawesome';
 import {AddNewsComponent} from './components/home/news/news-list/news-item/add-news/add-news.component';
 import {FormsModule} from '@angular/forms';
 import {HttpClientModule} from '@angular/common/http';
+import {CarouselComponent} from './components/home/carousel/carousel.component';
+import {FooterComponent} from './components/home/footer/footer.component';
 
 @NgModule({
   declarations: [
@@ -31,6 +33,8 @@ import {HttpClientModule} from '@angular/common/http';
     SidebarComponent,
     AdvertComponent,
     AddNewsComponent,
+    CarouselComponent,
+    FooterComponent,
   ],
   imports: [
     BrowserModule,
@@ -40,7 +44,8 @@ import {HttpClientModule} from '@angular/common/http';
     BsDropdownModule.forRoot(),
     TooltipModule.forRoot(),
     ModalModule.forRoot(),
-    FormsModule
+    FormsModule,
+    PopoverModule
   ],
   providers: [],
   bootstrap: [AppComponent]
