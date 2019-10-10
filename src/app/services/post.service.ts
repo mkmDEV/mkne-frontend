@@ -30,6 +30,14 @@ export class PostService {
       );
   }
 
+  getNewsItem(id): Observable<Post> {
+    return this.http.get<Post>(`${this.newsUrl}/${id}`)
+      .pipe(
+        tap($ => this.log(`fetched news with id ${id}`)),
+        catchError(this.handleError<Post>('getNewsItem'))
+      );
+  }
+
   getAds(): Observable<Post[]> {
     return this.http.get<Post[]>(this.postsUrl + '/ads')
       .pipe(
@@ -39,9 +47,10 @@ export class PostService {
   }
 
   addNews(news: Post): Observable<Post> {
-    return this.http.post<Post>(this.postsUrl, news, this.httpOptions).pipe(
-      tap((newNews: Post) => this.log(`added news width id=${newNews.id}`)),
-      catchError(this.handleError<Post>('addNews')));
+    return this.http.post<Post>(this.postsUrl, news, this.httpOptions)
+      .pipe(
+        tap((newNews: Post) => this.log(`added news width id=${newNews.id}`)),
+        catchError(this.handleError<Post>('addNews')));
   }
 
   updateNews(news: Post): Observable<any> {
