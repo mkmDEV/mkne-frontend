@@ -1,3 +1,5 @@
 <app-news-item class="news"
-  *ngFor="let newsItem of news" [news]=newsItem>
+               *ngFor="let newsItem of news" [news]=newsItem
+               (deleted)="onDeleted(newsItem)"
+>
 </app-news-item>

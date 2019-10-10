@@ -44,6 +44,22 @@ export class PostService {
       catchError(this.handleError<Post>('addNews')));
   }
 
+  updateNews(news: Post): Observable<any> {
+    return this.http.put(`${this.newsUrl}/${news.id}`, this.httpOptions)
+      .pipe(
+        tap($ => this.log(`updated product id=${news.id}`)),
+        catchError(this.handleError<any>('updateNews'))
+      );
+  }
+
+  deletePost(post: Post): Observable<Post> {
+    return this.http.delete<Post>(`${this.postsUrl}/${post.id}`)
+      .pipe(
+        tap($ => this.log(`Post deleted with id: ${post.id}`)),
+        catchError(this.handleError<Post>('deletePost'))
+      );
+  }
+
   /**
    * Handle Http operation that failed.
    * Let the app continue.
