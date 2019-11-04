@@ -1,0 +1,15 @@
+footer.page-footer {
+  color: #fff;
+}
+
+.font-small {
+  font-size: .9rem;
+}
+
+.unique-color-dark {
+  background-color: #0c0026 !important;
+}
+
+footer {
+  display: block;
+}

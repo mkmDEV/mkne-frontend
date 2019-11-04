@@ -10,7 +10,7 @@ import {PostService} from '../../../../services/post.service';
 export class NewsListComponent implements OnInit {
   news: Post[];
 
-  constructor(private postService: PostService){
+  constructor(private postService: PostService) {
   }
 
   ngOnInit() {
@@ -18,8 +18,14 @@ export class NewsListComponent implements OnInit {
   }
 
   getNews() {
-    this.postService.getNews().subscribe(news =>{
+    this.postService.getNews().subscribe(news => {
       this.news = news;
     });
+  }
+
+  onDeleted(news: Post) {
+    const index = this.news.indexOf(news);
+    this.news.splice(index, 1);
+    this.postService.deletePost(news).subscribe();
   }
 }

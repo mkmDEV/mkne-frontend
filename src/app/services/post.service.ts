@@ -30,6 +30,14 @@ export class PostService {
       );
   }
 
+  getNewsItem(id): Observable<Post> {
+    return this.http.get<Post>(`${this.newsUrl}/${id}`)
+      .pipe(
+        tap($ => this.log(`fetched news with id ${id}`)),
+        catchError(this.handleError<Post>('getNewsItem'))
+      );
+  }
+
   getAds(): Observable<Post[]> {
     return this.http.get<Post[]>(this.postsUrl + '/ads')
       .pipe(
@@ -38,13 +46,27 @@ export class PostService {
       );
   }
 
-//  TODO
-//   GET one post / news
-
   addNews(news: Post): Observable<Post> {
-    return this.http.post<Post>(this.postsUrl, news, this.httpOptions).pipe(
-      tap((newNews: Post) => this.log(`added news width id=${newNews.id}`)),
-      catchError(this.handleError<Post>('addNews')));
+    return this.http.post<Post>(this.postsUrl, news, this.httpOptions)
+      .pipe(
+        tap((newNews: Post) => this.log(`added news width id=${newNews.id}`)),
+        catchError(this.handleError<Post>('addNews')));
+  }
+
+  updateNews(news: Post): Observable<any> {
+    return this.http.put(`${this.newsUrl}/${news.id}`, this.httpOptions)
+      .pipe(
+        tap($ => this.log(`updated product id=${news.id}`)),
+        catchError(this.handleError<any>('updateNews'))
+      );
+  }
+
+  deletePost(post: Post): Observable<Post> {
+    return this.http.delete<Post>(`${this.postsUrl}/${post.id}`)
+      .pipe(
+        tap($ => this.log(`Post deleted with id: ${post.id}`)),
+        catchError(this.handleError<Post>('deletePost'))
+      );
   }
 
   /**
@@ -56,10 +78,8 @@ export class PostService {
   private handleError<T>(operation = 'operation', result?: T) {
     return (error: any): Observable<T> => {
 
-      // TODO: send the error to remote logging infrastructure
       console.error(error); // log to console instead
 
-      // TODO: better job of transforming error for user consumption
       this.log(`${operation} failed: ${error.message}`);
 
       // Let the app keep running by returning an empty result.

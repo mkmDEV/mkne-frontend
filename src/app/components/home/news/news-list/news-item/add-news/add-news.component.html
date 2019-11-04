@@ -4,42 +4,48 @@
     <div class="new-post-data"
          ngModelGroup="newPostData"
          #newPostData="ngModelGroup">
-      <div class="form-group">
-        <label for="new-post-author">Author</label>
-        <!--TODO logged in user's username -->
-        <input class="form-control"
+      <div class="input-group input-group-lg mb-3">
+        <div class="input-group-prepend">
+          <span class="input-group-text">Author</span>
+        </div>
+        <input class="form-control form-control-lg"
                id="new-post-author"
                name="author"
                type="text"
+               aria-label="author"
                [ngModel]="loggedInUsername"
                readonly>
       </div>
-      <div class="form-group">
-        <label for="new-post-title">Title</label>
+      <div class="input-group input-group-lg mb-3">
+        <div class="input-group-prepend">
+          <span class="input-group-text">Title</span>
+        </div>
         <input class="form-control form-control-lg"
                id="new-post-title"
                name="title"
                type="text"
+               aria-label="Title"
                placeholder="New Post"
                ngModel>
       </div>
-      <div class="form-group form-check">
+      <div class="input-group form-check mb-3">
         <input class="form-check-input"
                id="new-post-is-published"
                name="isPublished"
                type="checkbox"
+               aria-label="Publish"
                [(ngModel)]="isPublished">
         <label class="form-check-label" for="new-post-is-published">Publish</label>
       </div>
-      <div class="form-group">
-        <label for="new-post-category">Category</label>
-        <select class="form-control"
+      <div class="input-group mb-3">
+        <label class="input-group-text" for="new-post-category">Category</label>
+        <select class="form-control custom-select custom-select-lg"
                 id="new-post-category"
                 name="category"
+                aria-label="Category"
                 #category="ngModel"
                 [ngModel]="defaultCategory"
                 required>
-          <!--  TODO: Set news default value-->
           <option value="NEWS">News</option>
           <option value="REPORT">Report</option>
           <option value="CONFERENCE">Conference</option>
@@ -49,17 +55,22 @@
         <small class="form-text text-danger" *ngIf="!category.valid && category.touched">Please choose a
           category!</small>
       </div>
-      <div class="form-group">
-        <label for="new-post-body">Post</label>
+      <div class="input-group mb-3">
+        <div class="input-group-prepend">
+          <span class="input-group-text">Post</span>
+        </div>
         <textarea class="form-control"
                   id="new-post-body"
                   name="postBody"
+                  aria-label="Text area for new post's body"
                   rows="3"
                   ngModel
                   required>
       </textarea>
       </div>
-      <p class="form-text text-danger" *ngIf="!newPostData.valid && newPostData.touched">New post data is invalid.</p>
+      <div class="alert alert-danger fade show" role="alert" *ngIf="!newPostData.valid && newPostData.touched">
+        <strong>An error occurred!</strong> New post data is invalid.
+      </div>
     </div>
     <button class="btn btn-lg btn-success float-right"
             type="submit"
@@ -68,15 +79,4 @@
       Save post
     </button>
   </form>
-</div>
-<div class="clearfix"></div>
-<div class="row" *ngIf="submitted">
-  <div class="col-lg-4 align-content-center">
-    <p>
-      author: {{ post.author }}<br/>
-      title: {{ post.title }}<br/>
-      category: {{ post.category }}<br/>
-      isPublished: {{ post.isPublished }}<br/>
-      postBody: {{ post.postBody }}<br/>
-  </div>
 </div>

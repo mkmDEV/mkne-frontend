@@ -1,6 +1,7 @@
-import {Component, Input, OnInit} from '@angular/core';
+import {Component, EventEmitter, Input, OnInit, Output} from '@angular/core';
 import {Post} from '../../../../../models/Post';
 import {faPen, faTrash} from '@fortawesome/free-solid-svg-icons';
+import {PostService} from '../../../../../services/post.service';
 
 @Component({
   selector: 'app-news-item',
@@ -9,12 +10,19 @@ import {faPen, faTrash} from '@fortawesome/free-solid-svg-icons';
 })
 export class NewsItemComponent implements OnInit {
   @Input() news: Post;
+  @Output() deleted = new EventEmitter<Post>();
   puli = 'http://mkne.hu/design/puli.gif';
   faTrash = faTrash;
   faPen = faPen;
-  constructor() { }
+
+  constructor(
+    private postService: PostService) {
+  }
 
   ngOnInit() {
   }
 
+  onDelete(news: Post) {
+    this.deleted.emit(news);
+  }
 }
