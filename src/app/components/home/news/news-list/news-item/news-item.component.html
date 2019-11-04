@@ -3,27 +3,30 @@
     <div class="p-3 col-1">
       <img src="{{puli}}" alt="puli"/>
     </div>
-    <div class="p-2 col-7">
+    <div class="p-2 col-9">
       <h1>{{news.title}}</h1>
       <p>By {{news.author.firstName + ' ' + news.author.lastName}} at {{news.publishDate | date: 'short' : 'GTM+1'}}</p>
-      <h3>In category: {{news.category | lowercase}}</h3>
-    </div>
-    <div class="p-2 col-1 float-right">
-      <ul class="list-group list-inline list-group-horizontal">
-        <li class="list-inline-item">
-          <button class="btn btn-warning">
-            <fa-icon size="lg" [fixedWidth]="true" title="edit" [icon]="faPen"></fa-icon>
-          </button>
-        </li>
-        <li class="list-inline-item">
-          <button class="btn btn-danger">
-            <fa-icon size="lg" [fixedWidth]="true" title="delete" [icon]="faTrash" (click)="onDelete()"></fa-icon>
-          </button>
-        </li>
-      </ul>
+      <h4>In category: {{news.category | lowercase}}</h4>
     </div>
   </header>
   <section>
     <p>{{news.postBody}}</p>
   </section>
+  <footer class="d-flex flex-row float-right">
+    <div class="p-1 col-1">
+      <ul class="list-group list-inline list-group-horizontal">
+        <li class="list-inline-item">
+          <button class="btn btn-warning btn-block">
+            <fa-icon size="lg" title="edit" [icon]="faPen"></fa-icon>
+          </button>
+        </li>
+        <li class="list-inline-item">
+          <button class="btn btn-danger">
+            <fa-icon size="lg" title="delete" [icon]="faTrash" (click)="onDelete()"></fa-icon>
+          </button>
+        </li>
+      </ul>
+    </div>
+  </footer>
 </article>
+<div class="clearfix"></div>
