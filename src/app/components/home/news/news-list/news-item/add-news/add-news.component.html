@@ -68,7 +68,9 @@
                   required>
       </textarea>
       </div>
-      <p class="form-text text-danger" *ngIf="!newPostData.valid && newPostData.touched">New post data is invalid.</p>
+      <div class="alert alert-danger fade show" role="alert" *ngIf="!newPostData.valid && newPostData.touched">
+        <strong>An error occurred!</strong> New post data is invalid.
+      </div>
     </div>
     <button class="btn btn-lg btn-success float-right"
             type="submit"
