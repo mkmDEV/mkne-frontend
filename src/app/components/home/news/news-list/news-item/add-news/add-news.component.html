@@ -10,6 +10,7 @@
                id="new-post-author"
                name="author"
                type="text"
+               aria-label="author"
                [ngModel]="loggedInUsername"
                readonly>
       </div>
@@ -19,14 +20,16 @@
                id="new-post-title"
                name="title"
                type="text"
+               aria-label="Title"
                placeholder="New Post"
                ngModel>
       </div>
-      <div class="form-group form-check">
+      <div class="input-group form-check mb-3">
         <input class="form-check-input"
                id="new-post-is-published"
                name="isPublished"
                type="checkbox"
+               aria-label="Publish"
                [(ngModel)]="isPublished">
         <label class="form-check-label" for="new-post-is-published">Publish</label>
       </div>
@@ -35,6 +38,7 @@
         <select class="form-control"
                 id="new-post-category"
                 name="category"
+                aria-label="Category"
                 #category="ngModel"
                 [ngModel]="defaultCategory"
                 required>
@@ -52,6 +56,7 @@
         <textarea class="form-control"
                   id="new-post-body"
                   name="postBody"
+                  aria-label="Text area for new post's body"
                   rows="3"
                   ngModel
                   required>
