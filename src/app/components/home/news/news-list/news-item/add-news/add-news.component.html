@@ -4,9 +4,11 @@
     <div class="new-post-data"
          ngModelGroup="newPostData"
          #newPostData="ngModelGroup">
-      <div class="form-group">
-        <label for="new-post-author">Author</label>
-        <input class="form-control"
+      <div class="input-group input-group-lg mb-3">
+        <div class="input-group-prepend">
+          <span class="input-group-text">Author</span>
+        </div>
+        <input class="form-control form-control-lg"
                id="new-post-author"
                name="author"
                type="text"
@@ -14,8 +16,10 @@
                [ngModel]="loggedInUsername"
                readonly>
       </div>
-      <div class="form-group">
-        <label for="new-post-title">Title</label>
+      <div class="input-group input-group-lg mb-3">
+        <div class="input-group-prepend">
+          <span class="input-group-text">Title</span>
+        </div>
         <input class="form-control form-control-lg"
                id="new-post-title"
                name="title"
@@ -33,9 +37,9 @@
                [(ngModel)]="isPublished">
         <label class="form-check-label" for="new-post-is-published">Publish</label>
       </div>
-      <div class="form-group">
-        <label for="new-post-category">Category</label>
-        <select class="form-control"
+      <div class="input-group mb-3">
+        <label class="input-group-text" for="new-post-category">Category</label>
+        <select class="form-control custom-select custom-select-lg"
                 id="new-post-category"
                 name="category"
                 aria-label="Category"
@@ -51,8 +55,10 @@
         <small class="form-text text-danger" *ngIf="!category.valid && category.touched">Please choose a
           category!</small>
       </div>
-      <div class="form-group">
-        <label for="new-post-body">Post</label>
+      <div class="input-group mb-3">
+        <div class="input-group-prepend">
+          <span class="input-group-text">Post</span>
+        </div>
         <textarea class="form-control"
                   id="new-post-body"
                   name="postBody"
