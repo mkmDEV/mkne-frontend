@@ -1,1 +1,36 @@
+.carousel-inner > .carousel-item {
+  height: 40vh;
+}
 
+.carousel-item:after {
+  content: "";
+  display: block;
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 50%;
+  /*TODO
+     FIND OUT how to start gradient with ~35% opacitry and finish with full transparent like the proto in figma
+     */
+  background: rgba(19, 78, 94, 0.35);
+  background: -moz-linear-gradient(left, rgba(19, 78, 94, 0.35) 0%, rgba(113, 178, 128, 0.35) 100%);
+  -webkit-mask-background: -webkit-gradient(linear, left top, right top, from(rgba(19, 78, 94, 0.35)), to(rgba(113, 178, 128, 0)));
+  background: -webkit-linear-gradient(left, rgba(19, 78, 94, 0.35) 0%, rgba(113, 178, 128, 0.35) 100%);
+  background: -o-linear-gradient(left, rgba(19, 78, 94, 100) 0%, rgba(113, 178, 128, 0.8) 100%);
+  background: -ms-linear-gradient(left, rgba(19, 78, 94, 100) 0%, rgba(113, 178, 128, 0.8) 100%);
+  background: linear-gradient(to right, rgba(19, 78, 94, 100) 0%, rgba(113, 178, 128, 0.8) 100%);
+  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#134e5e', endColorstr='#71b280', GradientType=1);
+}
+
+.carousel-caption {
+  color: rgba(255, 255, 255, 100);
+}
+
+.carousel-caption h5 {
+  font-family: Roboto, serif;
+  font-style: normal;
+  font-weight: bold;
+  font-size: 48px;
+  line-height: 100%;
+}
