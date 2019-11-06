@@ -19,6 +19,7 @@ import {FormsModule} from '@angular/forms';
 import {HttpClientModule} from '@angular/common/http';
 import {CarouselComponent} from './components/home/carousel/carousel.component';
 import {FooterComponent} from './components/home/footer/footer.component';
+import {SearchComponent} from './components/home/top-nav-bar/search/search.component';
 
 @NgModule({
   declarations: [
@@ -35,6 +36,7 @@ import {FooterComponent} from './components/home/footer/footer.component';
     AddNewsComponent,
     CarouselComponent,
     FooterComponent,
+    SearchComponent,
   ],
   imports: [
     AlertModule.forRoot(),
