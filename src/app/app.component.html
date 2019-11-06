@@ -1,24 +1,11 @@
-<!-- Navigation -->
-<app-top-nav-bar></app-top-nav-bar>
+<header>
+  <app-top-nav-bar></app-top-nav-bar>
+</header>
 
-<!-- Page Content -->
-<div class="container container-fluid">
+<main role="main">
+  <router-outlet></router-outlet>
+</main>
 
-  <div class="row">
-
-    <div class="col-lg-8 main">
-      <router-outlet></router-outlet>
-    </div>
-
-    <!-- Sidebar Widgets Column -->
-    <div id="sidebar" class="col-md-4">
-      <app-sidebar></app-sidebar>
-    </div>
-
-  </div>
-  <!-- /.row -->
-
-</div>
-<!-- /.container -->
-<!-- Footer -->
-<app-footer></app-footer>
+<footer>
+  <app-footer></app-footer>
+</footer>
