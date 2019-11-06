@@ -67,13 +67,14 @@
                         id="new-post-body"
                         name="postBody"
                         aria-label="Text area for new post's body"
+                        #postBody="ngModel"
                         rows="3"
                         ngModel
                         required>
       </textarea>
             </div>
-            <alert type="danger" class="fade show" *ngIf="!newPostData.valid && newPostData.touched">
-              <strong>An error occurred!</strong> New post data is invalid.
+            <alert type="danger" class="fade show" *ngIf="!postBody.valid && postBody.touched">
+              <strong>An error occurred!</strong> Post can not be empty.
             </alert>
           </div>
           <button class="btn btn-lg btn-success float-right"
