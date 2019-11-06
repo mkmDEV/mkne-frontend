@@ -58,6 +58,5 @@ export class AddNewsComponent implements OnInit {
       this.newPostForm.reset();
       this.initForm();
     });
-
   }
 }
