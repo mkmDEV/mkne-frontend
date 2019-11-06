@@ -55,9 +55,10 @@
                 <option value="INVITATION">Invitation</option>
                 <option value="ADVERT">Advert</option>
               </select>
-              <small class="form-text text-danger" *ngIf="!category.valid && category.touched">Please choose a
-                category!</small>
             </div>
+            <alert type="danger" class="small form-text ml-2" *ngIf="!category.valid && category.touched">Please choose
+              a category!
+            </alert>
             <div class="input-group mb-3">
               <div class="input-group-prepend">
                 <span class="input-group-text">Post</span>
@@ -66,14 +67,15 @@
                         id="new-post-body"
                         name="postBody"
                         aria-label="Text area for new post's body"
+                        #postBody="ngModel"
                         rows="3"
                         ngModel
                         required>
       </textarea>
             </div>
-            <div class="alert alert-danger fade show" role="alert" *ngIf="!newPostData.valid && newPostData.touched">
-              <strong>An error occurred!</strong> New post data is invalid.
-            </div>
+            <alert type="danger" class="fade show" *ngIf="!postBody.valid && postBody.touched">
+              <strong>An error occurred!</strong> Post can not be empty.
+            </alert>
           </div>
           <button class="btn btn-lg btn-success float-right"
                   type="submit"

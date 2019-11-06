@@ -6,3 +6,16 @@
   min-height: max-content;
   display: block;
 }
+
+/* footer's styling*/
+footer.page-footer {
+  color: #fff;
+}
+
+.unique-color-dark {
+  background-color: #0c0026 !important;
+}
+
+.font-small {
+  font-size: 0.9rem;
+}
