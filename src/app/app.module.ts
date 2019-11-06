@@ -7,7 +7,7 @@ import {NewsComponent} from './components/home/news/news.component';
 import {HomeComponent} from './components/home/home.component';
 import {NewsListComponent} from './components/home/news/news-list/news-list.component';
 import {NewsItemComponent} from './components/home/news/news-list/news-item/news-item.component';
-import {BsDropdownModule, CarouselModule, ModalModule, PopoverModule, TooltipModule} from 'ngx-bootstrap';
+import {AlertModule, BsDropdownModule, CarouselModule, ModalModule, PopoverModule, TooltipModule} from 'ngx-bootstrap';
 import {TopNavBarComponent} from './components/home/top-nav-bar/top-nav-bar.component';
 import {AnimatedLogoComponent} from './components/home/top-nav-bar/animated-logo/animated-logo.component';
 import {AdvertsComponent} from './components/home/sidebar/adverts/adverts.component';
@@ -37,6 +37,7 @@ import {FooterComponent} from './components/home/footer/footer.component';
     FooterComponent,
   ],
   imports: [
+    AlertModule.forRoot(),
     AppRoutingModule,
     BrowserModule,
     BsDropdownModule.forRoot(),
