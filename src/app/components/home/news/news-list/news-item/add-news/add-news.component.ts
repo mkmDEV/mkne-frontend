@@ -43,7 +43,6 @@ export class AddNewsComponent implements OnInit {
       this.loggedInUsername = this.post.author.username;
     });
     this.post.category = this.defaultCategory;
-    console.log('Debug category' + this.post.category);
     this.post.isPublished = false;
   }
 
