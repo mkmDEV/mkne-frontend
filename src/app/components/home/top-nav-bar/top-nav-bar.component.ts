@@ -1,4 +1,5 @@
 import {Component, OnInit} from '@angular/core';
+import {ActivatedRoute} from '@angular/router';
 
 @Component({
   selector: 'app-top-nav-bar',
@@ -7,12 +8,20 @@ import {Component, OnInit} from '@angular/core';
 })
 export class TopNavBarComponent implements OnInit {
   title: string;
+  query: string;
+  private routeSub: any;
 
-  constructor() {
+  constructor(private route: ActivatedRoute) {
+    this.routeSub = route.params.subscribe(params => {
+      this.query = params['q'];
+    });
   }
 
   ngOnInit() {
     this.title = 'MKNE';
   }
 
+  ngOnDestroy() {
+    this.routeSub.unsubscribe();
+  }
 }
