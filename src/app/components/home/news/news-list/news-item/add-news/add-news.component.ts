@@ -4,6 +4,7 @@ import {PostService} from '../../../../../../services/post.service';
 import {MemberService} from '../../../../../../services/member.service';
 import {faPlusCircle} from '@fortawesome/free-solid-svg-icons';
 import {Member} from '../../../../../../models/Member';
+import {Router} from '@angular/router';
 
 @Component({
   selector: 'app-add-news',
@@ -29,7 +30,8 @@ export class AddNewsComponent implements OnInit {
 
   constructor(
     private postService: PostService,
-    private memberService: MemberService
+    private memberService: MemberService,
+    private route: Router,
   ) {
   }
 
@@ -43,7 +45,6 @@ export class AddNewsComponent implements OnInit {
       this.loggedInUsername = this.post.author.username;
     });
     this.post.category = this.defaultCategory;
-    console.log('Debug category' + this.post.category);
     this.post.isPublished = false;
   }
 
@@ -58,5 +59,6 @@ export class AddNewsComponent implements OnInit {
       this.newPostForm.reset();
       this.initForm();
     });
+    this.route.navigate(['']);
   }
 }
