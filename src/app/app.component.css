@@ -1,12 +1,3 @@
-.content {
-  padding: 1vw;
-  background: rgba(255, 255, 255, 0.8);
-  border-radius: 1vw 3vw 2vw;
-  box-shadow: 10px 10px 5px grey;
-  min-height: max-content;
-  display: block;
-}
-
 /* footer's styling*/
 footer.page-footer {
   color: #fff;
