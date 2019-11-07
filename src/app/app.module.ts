@@ -20,23 +20,25 @@ import {HttpClientModule} from '@angular/common/http';
 import {CarouselComponent} from './components/home/carousel/carousel.component';
 import {FooterComponent} from './components/home/footer/footer.component';
 import {SearchComponent} from './components/home/top-nav-bar/search/search.component';
+import {SearchDetailComponent} from './components/home/top-nav-bar/search/search-detail/search-detail.component';
 
 @NgModule({
   declarations: [
-    AppComponent,
-    HomeComponent,
-    NewsComponent,
-    NewsListComponent,
-    NewsItemComponent,
-    TopNavBarComponent,
-    AnimatedLogoComponent,
-    AdvertsComponent,
-    SidebarComponent,
-    AdvertComponent,
     AddNewsComponent,
+    AdvertComponent,
+    AdvertsComponent,
+    AnimatedLogoComponent,
+    AppComponent,
     CarouselComponent,
     FooterComponent,
+    HomeComponent,
+    NewsComponent,
+    NewsItemComponent,
+    NewsListComponent,
     SearchComponent,
+    SearchDetailComponent,
+    SidebarComponent,
+    TopNavBarComponent,
   ],
   imports: [
     AlertModule.forRoot(),
