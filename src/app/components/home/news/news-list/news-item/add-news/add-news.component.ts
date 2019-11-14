@@ -49,7 +49,6 @@ export class AddNewsComponent implements OnInit {
   }
 
   onSubmit(f: NgForm) {
-    console.log(f);
     this.submitted = true;
     this.post.title = this.newPostForm.value.newPostData.title;
     this.post.isPublished = this.newPostForm.value.newPostData.isPublished;
