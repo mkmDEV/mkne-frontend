@@ -10,6 +10,7 @@ export class TopNavBarComponent implements OnInit {
   title: string;
   query: string;
   private routeSub: any;
+  navbarOpen = false;
 
   constructor(private route: ActivatedRoute) {
     this.routeSub = route.params.subscribe(params => {
@@ -23,5 +24,9 @@ export class TopNavBarComponent implements OnInit {
 
   ngOnDestroy() {
     this.routeSub.unsubscribe();
+  }
+
+  toggleNavbar() {
+    this.navbarOpen = !this.navbarOpen;
   }
 }

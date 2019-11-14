@@ -14,6 +14,7 @@ body {
   font-size: 2vw;
   font-weight: bold;
   font-style: italic;
+  text-shadow: 0.1vw 0.1vw rgba(35, 69, 3, 0.3);
 }
 
 .logo::before, .logo::after {
@@ -37,6 +38,6 @@ body {
 
 @keyframes straightLine {
   50% {
-    transform: translate3D(20px, -20px, 0);
+    transform: translate3D(2vh, -2vh, 0);
   }
 }
