@@ -11,6 +11,7 @@ import {PostService} from '../../../../../services/post.service';
 export class NewsItemComponent implements OnInit {
   @Input() news: Post;
   @Output() deleted = new EventEmitter<Post>();
+  @Output() updated = new EventEmitter<Post>();
   puli = 'http://mkne.hu/design/puli.gif';
   faTrash = faTrash;
   faPen = faPen;
@@ -24,5 +25,10 @@ export class NewsItemComponent implements OnInit {
 
   onDelete(news: Post) {
     this.deleted.emit(news);
+  }
+
+  onEdit(news: Post) {
+    this.postService.updateNews(news);
+    this.updated.emit(news);
   }
 }
