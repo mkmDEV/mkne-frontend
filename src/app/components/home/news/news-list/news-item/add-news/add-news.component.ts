@@ -57,7 +57,7 @@ export class AddNewsComponent implements OnInit {
     this.postService.addNews(this.post).subscribe(res => {
       this.newPostForm.reset();
       this.initForm();
+      this.route.navigate(['']);
     });
-    this.route.navigate(['']);
   }
 }

@@ -10,19 +10,27 @@
     </div>
   </header>
   <section>
-    <p>{{news.postBody}}</p>
+    <p (keydown.enter)="onEnter(news)"
+       (keydown.escape)="onEsc()"
+       [contentEditable]="editable"
+       [ngClass]="{'p-3 mb-2 bg-secondary text-white shadow': editable}"
+       #postText>
+      {{news.postBody}}
+    </p>
+    <small class="text-muted" *ngIf="editable">Press ENTER to save</small>
+    <small class="text-muted offset-1" *ngIf="editable">ESC to quit</small>
   </section>
   <footer class="d-flex flex-row float-right">
     <div class="p-1 col-1">
       <ul class="list-group list-inline list-group-horizontal">
         <li class="list-inline-item">
-          <button class="btn btn-warning btn-block">
+          <button (click)="onEdit(news)" class="btn btn-warning btn-block">
             <fa-icon size="lg" title="edit" [icon]="faPen"></fa-icon>
           </button>
         </li>
         <li class="list-inline-item">
-          <button class="btn btn-danger">
-            <fa-icon size="lg" title="delete" [icon]="faTrash" (click)="onDelete(news)"></fa-icon>
+          <button (click)="onDelete(news)" class="btn btn-danger">
+            <fa-icon size="lg" title="delete" [icon]="faTrash"></fa-icon>
           </button>
         </li>
       </ul>
