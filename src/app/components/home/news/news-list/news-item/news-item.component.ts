@@ -31,11 +31,12 @@ export class NewsItemComponent implements OnInit {
 
   onEdit(news: Post) {
     this.editable = true;
+    console.log('User has clicked on edit button.', new Date());
   }
 
   onEnter(news: Post) {
     this.resetEditable();
-    this.news.postBody = this.postText.nativeElement.textContent;
+    this.news.postBody = this.postText.nativeElement.textContent.trim();
     this.news.publishDate = new Date();
     this.updated.emit(news);
   }
