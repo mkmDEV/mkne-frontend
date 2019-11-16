@@ -24,13 +24,13 @@
     <div class="p-1 col-1">
       <ul class="list-group list-inline list-group-horizontal">
         <li class="list-inline-item">
-          <button class="btn btn-warning btn-block">
-            <fa-icon size="lg" title="edit" [icon]="faPen" (click)="onEdit(news)"></fa-icon>
+          <button (click)="onEdit(news)" class="btn btn-warning btn-block">
+            <fa-icon size="lg" title="edit" [icon]="faPen"></fa-icon>
           </button>
         </li>
         <li class="list-inline-item">
-          <button class="btn btn-danger">
-            <fa-icon size="lg" title="delete" [icon]="faTrash" (click)="onDelete(news)"></fa-icon>
+          <button (click)="onDelete(news)" class="btn btn-danger">
+            <fa-icon size="lg" title="delete" [icon]="faTrash"></fa-icon>
           </button>
         </li>
       </ul>
