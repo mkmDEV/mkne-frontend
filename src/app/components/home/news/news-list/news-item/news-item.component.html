@@ -17,6 +17,8 @@
        #postText>
       {{news.postBody}}
     </p>
+    <small class="text-muted" *ngIf="editable">Press ENTER to save</small>
+    <small class="text-muted offset-1" *ngIf="editable">ESC to quit</small>
   </section>
   <footer class="d-flex flex-row float-right">
     <div class="p-1 col-1">
