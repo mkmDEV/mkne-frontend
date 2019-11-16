@@ -34,12 +34,16 @@ export class NewsItemComponent implements OnInit {
   }
 
   onEnter(news: Post) {
-    this.editable = false;
+    this.resetEditable();
     this.news.postBody = this.postText.nativeElement.textContent;
     this.updated.emit(news);
   }
 
   onEsc() {
+    this.resetEditable();
+  }
+
+  private resetEditable() {
     this.editable = false;
   }
 }
