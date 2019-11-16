@@ -30,8 +30,7 @@ export class NewsItemComponent implements OnInit {
   }
 
   onEdit(news: Post) {
-    this.editable = true;
-    console.log('User has clicked on edit button.', new Date());
+    this.editable = !this.editable;
   }
 
   onEnter(news: Post) {
