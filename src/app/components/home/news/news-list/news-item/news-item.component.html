@@ -10,7 +10,8 @@
     </div>
   </header>
   <section>
-    <p>{{news.postBody}}</p>
+    <p (keydown.enter)="onEnter(news)" [contentEditable]="editable"
+       [ngClass]="{'p-3 mb-2 bg-secondary text-white': editable}" #postText>{{news.postBody}}</p>
   </section>
   <footer class="d-flex flex-row float-right">
     <div class="p-1 col-1">
