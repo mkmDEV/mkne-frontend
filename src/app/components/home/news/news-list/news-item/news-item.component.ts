@@ -36,6 +36,7 @@ export class NewsItemComponent implements OnInit {
   onEnter(news: Post) {
     this.resetEditable();
     this.news.postBody = this.postText.nativeElement.textContent;
+    this.news.publishDate = new Date();
     this.updated.emit(news);
   }
 
