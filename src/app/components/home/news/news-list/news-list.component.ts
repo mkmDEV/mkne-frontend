@@ -28,4 +28,8 @@ export class NewsListComponent implements OnInit {
     this.news.splice(index, 1);
     this.postService.deletePost(news).subscribe();
   }
+
+  onUpdated(news: Post) {
+    this.postService.updateNews(news).subscribe();
+  }
 }

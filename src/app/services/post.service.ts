@@ -54,7 +54,8 @@ export class PostService {
   }
 
   updateNews(news: Post): Observable<any> {
-    return this.http.put(`${this.newsUrl}/${news.id}`, this.httpOptions)
+    // return this.http.put(`${this.newsUrl}/${news.id}`, this.httpOptions)
+    return this.http.put<Post>(`${this.postsUrl}/${news.id}`, news, this.httpOptions)
       .pipe(
         tap($ => this.log(`updated product id=${news.id}`)),
         catchError(this.handleError<any>('updateNews'))
