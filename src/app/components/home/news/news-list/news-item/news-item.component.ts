@@ -38,4 +38,8 @@ export class NewsItemComponent implements OnInit {
     this.news.postBody = this.postText.nativeElement.textContent;
     this.updated.emit(news);
   }
+
+  onEsc() {
+    this.editable = false;
+  }
 }
