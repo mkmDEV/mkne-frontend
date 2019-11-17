@@ -16,6 +16,7 @@ export class WeatherService {
       .set('lat', lat)
       .set('lon', lon)
       .set('units', 'metric')
+      .set('lang', 'hu')
       .set('appid', this.apiKey);
 
     return this.http.get(this.url, {params});
