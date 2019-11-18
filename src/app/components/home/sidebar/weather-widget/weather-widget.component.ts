@@ -9,7 +9,7 @@ import {WeatherService} from '../../../../services/weather.service';
 export class WeatherWidgetComponent implements OnInit {
   private lat;
   private lon;
-  private weather;
+  private data;
   private Budapest = {lat: 47.4984, lon: 19.0405};
   private icon = 'http://openweathermap.org/img/wn/' + this.weather.weather.icon + 'png';
 
@@ -29,12 +29,12 @@ export class WeatherWidgetComponent implements OnInit {
         this.lon = success.coords.longitude;
 
         this.weatherService.getWeatherDataByCoords(this.lat, this.lon).subscribe(data => {
-          this.weather = data;
+          this.data = data;
         });
       });
     }
     this.weatherService.getWeatherDataByCoords(this.Budapest.lat, this.Budapest.lon).subscribe(data => {
-      this.weather = data;
+      this.data = data;
     });
   }
 }

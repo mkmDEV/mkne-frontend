@@ -1,8 +1,8 @@
-<div class="mb-5 w-100 bg-gradient d-inline-block shadow">
+<div class="mb-5 w-100 bg-light d-inline-block shadow">
   <div class="card-body p-4 ">
-    <h2 class="card-title">{{weather.name | uppercase}}</h2>
-    <img class="card-img" src="{{icon}}">
-    <p class="display-1">{{weather.main.temp  | number: '1.0-0'}}°C</p>
-    <p class="card-text text-muted lead">{{weather.weather[0].description}}</p>
+    <h2 class="card-title">{{data.name | uppercase}}</h2>
+    <!--    <img class="card-img" [src]="{{icon}}" />-->
+    <p class="display-1">{{data.main.temp  | number: '1.0-0'}}°C</p>
+    <p class="card-text text-muted lead">{{data.weather[0].description}}</p>
   </div>
 </div>
