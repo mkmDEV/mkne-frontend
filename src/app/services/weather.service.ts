@@ -1,5 +1,6 @@
 import {Injectable} from '@angular/core';
 import {HttpClient, HttpParams} from '@angular/common/http';
+import {Observable} from 'rxjs';
 
 @Injectable({providedIn: 'root'})
 export class WeatherService {
@@ -11,14 +12,14 @@ export class WeatherService {
     private http: HttpClient) {
   }
 
-  getWeatherDataByCoords(lat, lon) {
-    const params = new HttpParams()
-      .set('lat', lat)
-      .set('lon', lon)
-      .set('units', 'metric')
-      .set('lang', 'hu')
-      .set('appid', this.apiKey);
+  getWeatherDataByCoords(lat: number, lon: number): Observable<any> {
+    let params = new HttpParams();
+    params = params.set('lat', lat.toString());
+    params = params.set('lon', lon.toString());
+    params = params.set('units', 'metric');
+    params = params.set('lang', 'hu');
+    params = params.set('appid', this.API_KEY);
 
-    return this.http.get(this.url, {params});
+    return this.http.get(this.ENDPOINT_URL, {params});
   }
 }
