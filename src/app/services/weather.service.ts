@@ -4,8 +4,8 @@ import {HttpClient, HttpParams} from '@angular/common/http';
 @Injectable({providedIn: 'root'})
 export class WeatherService {
 
-  private apiKey = '37bd7ebe43f9ccf2058d4f1a201d6b94';
-  private url = 'http://api.openweathermap.org/data/2.5/weather/';
+  readonly API_KEY = '37bd7ebe43f9ccf2058d4f1a201d6b94';
+  readonly ENDPOINT_URL = 'http://api.openweathermap.org/data/2.5/weather/';
 
   constructor(
     private http: HttpClient) {
