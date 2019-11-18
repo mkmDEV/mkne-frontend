@@ -1,0 +1,7 @@
+<div class="weather-card mb-5 w-100 bg-light d-inline-block shadow">
+  <div class="card-body p-4 ">
+    <h2 class="card-title">{{data.name | uppercase}}</h2>
+    <p class="display-1 degree">{{data.main.temp  | number: '1.0-0'}}</p>
+    <p class="card-text text-muted lead">{{data.weather[0].description}}</p>
+  </div>
+</div>

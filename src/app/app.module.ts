@@ -21,6 +21,7 @@ import {CarouselComponent} from './components/home/carousel/carousel.component';
 import {FooterComponent} from './components/home/footer/footer.component';
 import {SearchComponent} from './components/home/top-nav-bar/search/search.component';
 import {SearchDetailComponent} from './components/home/top-nav-bar/search/search-detail/search-detail.component';
+import {WeatherWidgetComponent} from './components/home/sidebar/weather-widget/weather-widget.component';
 
 @NgModule({
   declarations: [
@@ -39,6 +40,7 @@ import {SearchDetailComponent} from './components/home/top-nav-bar/search/search
     SearchDetailComponent,
     SidebarComponent,
     TopNavBarComponent,
+    WeatherWidgetComponent,
   ],
   imports: [
     AlertModule.forRoot(),
