@@ -3,10 +3,24 @@
     <div class="p-3 col-1">
       <img src="{{puli}}" alt="puli"/>
     </div>
-    <div class="p-2 col-9">
-      <h1>{{news.title}}</h1>
-      <p>By {{news.author.firstName + ' ' + news.author.lastName}} at {{news.publishDate | date: 'short' : 'GTM+1'}}</p>
-      <h4>In category: {{news.category | lowercase}}</h4>
+    <div class="p-2 col-lg-11">
+      <h2 class="h2">{{news.title}}</h2>
+      <div class="container">
+        <div class="row text-secondary">
+          <div class="col-lg-2">
+            <fa-icon size="xs" title="category" [icon]="faHashtag"></fa-icon>
+            {{news.category | lowercase}}
+          </div>
+          <div class="col-lg-3">
+            <fa-icon size="xs" title="author" [icon]="faUser"></fa-icon>
+            {{ news.author.lastName }} {{ news.author.firstName }}
+          </div>
+          <div class="col-lg-auto">
+            <fa-icon size="xs" title="post date" [icon]="faCalendar"></fa-icon>
+            {{news.publishDate | date: 'yyyy. MM. dd. HH:mm'  : 'GTM+1'}}
+          </div>
+        </div>
+      </div>
     </div>
   </header>
   <section>
