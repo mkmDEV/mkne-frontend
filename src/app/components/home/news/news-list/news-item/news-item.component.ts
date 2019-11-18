@@ -1,6 +1,6 @@
 import {Component, EventEmitter, Input, OnInit, Output, ViewChild} from '@angular/core';
 import {Post} from '../../../../../models/Post';
-import {faPen, faTrash} from '@fortawesome/free-solid-svg-icons';
+import {faCalendar, faHashtag, faPen, faTrash, faUser} from '@fortawesome/free-solid-svg-icons';
 import {PostService} from '../../../../../services/post.service';
 
 @Component({
@@ -16,6 +16,9 @@ export class NewsItemComponent implements OnInit {
   puli = 'http://mkne.hu/design/puli.gif';
   faTrash = faTrash;
   faPen = faPen;
+  faUser = faUser;
+  faCalendar = faCalendar;
+  faHashtag = faHashtag;
   editable = false;
 
   constructor(
