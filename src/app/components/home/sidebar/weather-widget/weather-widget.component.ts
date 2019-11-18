@@ -11,7 +11,6 @@ export class WeatherWidgetComponent implements OnInit {
   private lon;
   private data;
   private Budapest = {lat: 47.4984, lon: 19.0405};
-  private icon = 'http://openweathermap.org/img/wn/' + this.weather.weather.icon + 'png';
 
   constructor(
     private weatherService: WeatherService
