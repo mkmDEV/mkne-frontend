@@ -30,7 +30,7 @@ export class TopNavBarComponent implements OnInit {
     this.navbarOpen = !this.navbarOpen;
   }
 
-  scroll() {
+  scroll($event: MouseEvent) {
     document.getElementById('contact').scrollIntoView({behavior: 'smooth'});
   }
 }
