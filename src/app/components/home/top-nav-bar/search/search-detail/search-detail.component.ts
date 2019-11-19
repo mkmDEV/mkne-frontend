@@ -33,7 +33,6 @@ export class SearchDetailComponent implements OnInit, OnDestroy {
   getResponse() {
     this.postService.findPosts(this.query).subscribe(resp => {
       this.response = resp;
-      console.log(resp);
     });
   }
 }
