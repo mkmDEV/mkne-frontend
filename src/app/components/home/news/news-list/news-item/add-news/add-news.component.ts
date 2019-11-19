@@ -49,16 +49,13 @@ export class AddNewsComponent implements OnInit {
   }
 
   onSubmit(f: NgForm) {
-    console.log(f);
     this.submitted = true;
     this.post.title = this.newPostForm.value.newPostData.title;
     this.post.isPublished = this.newPostForm.value.newPostData.isPublished;
     this.post.category = this.newPostForm.value.newPostData.category;
     this.post.postBody = this.newPostForm.value.newPostData.postBody;
     this.postService.addNews(this.post).subscribe(res => {
-      this.newPostForm.reset();
-      this.initForm();
+      this.route.navigate(['']);
     });
-    this.route.navigate(['']);
   }
 }

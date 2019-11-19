@@ -1,9 +1,11 @@
+@import url('https://fonts.googleapis.com/css?family=Roboto&display=swap');
+
 .bg-custom {
   background-color: #0c0026 !important;
 }
 
 .nav-item {
-  font-family: Roboto;
+  font-family: Roboto, serif;
   font-style: normal;
   font-weight: 500;
   font-size: 18px;

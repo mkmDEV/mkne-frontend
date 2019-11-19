@@ -3,30 +3,52 @@
     <div class="p-3 col-1">
       <img src="{{puli}}" alt="puli"/>
     </div>
-    <div class="p-2 col-9">
-      <h1>{{news.title}}</h1>
-      <p>By {{news.author.firstName + ' ' + news.author.lastName}} at {{news.publishDate | date: 'short' : 'GTM+1'}}</p>
-      <h4>In category: {{news.category | lowercase}}</h4>
+    <div class="p-2 col-lg-11">
+      <h2 class="h2">{{news.title}}</h2>
+      <div class="container">
+        <div class="row text-secondary">
+          <div class="col-lg-2">
+            <fa-icon size="xs" title="category" [icon]="faHashtag"></fa-icon>
+            {{news.category | lowercase}}
+          </div>
+          <div class="col-lg-3">
+            <fa-icon size="xs" title="author" [icon]="faUser"></fa-icon>
+            {{ news.author.lastName }} {{ news.author.firstName }}
+          </div>
+          <div class="col-lg-auto">
+            <fa-icon size="xs" title="post date" [icon]="faCalendar"></fa-icon>
+            {{news.publishDate | date: 'yyyy. MM. dd. HH:mm'  : 'GTM+1'}}
+          </div>
+        </div>
+      </div>
     </div>
   </header>
   <section>
-    <p>{{news.postBody}}</p>
+    <p (keydown.enter)="onEnter(news)"
+       (keydown.escape)="onEsc()"
+       [contentEditable]="editable"
+       [ngClass]="{'p-3 mb-2 bg-secondary text-white shadow': editable}"
+       #postText>
+      {{news.postBody}}
+    </p>
+    <small class="text-muted" *ngIf="editable">Press ENTER to save</small>
+    <small class="text-muted offset-1" *ngIf="editable">ESC to quit</small>
   </section>
   <footer class="d-flex flex-row float-right">
     <div class="p-1 col-1">
       <ul class="list-group list-inline list-group-horizontal">
         <li class="list-inline-item">
-          <button class="btn btn-warning btn-block">
+          <button (click)="onEdit(news)" class="btn btn-warning btn-block">
             <fa-icon size="lg" title="edit" [icon]="faPen"></fa-icon>
           </button>
         </li>
         <li class="list-inline-item">
-          <button class="btn btn-danger">
-            <fa-icon size="lg" title="delete" [icon]="faTrash" (click)="onDelete(news)"></fa-icon>
+          <button (click)="onDelete(news)" class="btn btn-danger">
+            <fa-icon size="lg" title="delete" [icon]="faTrash"></fa-icon>
           </button>
         </li>
       </ul>
     </div>
   </footer>
 </article>
-<div class="clearfix"></div>
+<div class="clearfix mb-5"></div>
