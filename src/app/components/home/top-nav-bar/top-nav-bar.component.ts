@@ -29,4 +29,8 @@ export class TopNavBarComponent implements OnInit {
   toggleNavbar() {
     this.navbarOpen = !this.navbarOpen;
   }
+
+  scroll() {
+    document.getElementById('contact').scrollIntoView({behavior: 'smooth'});
+  }
 }
