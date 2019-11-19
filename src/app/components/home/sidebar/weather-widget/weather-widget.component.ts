@@ -9,7 +9,7 @@ import {WeatherService} from '../../../../services/weather.service';
 export class WeatherWidgetComponent implements OnInit {
   private lat;
   private lon;
-  private data;
+  data;
   private Budapest = {lat: 47.4984, lon: 19.0405};
 
   constructor(
