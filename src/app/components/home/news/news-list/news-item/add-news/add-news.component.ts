@@ -55,8 +55,6 @@ export class AddNewsComponent implements OnInit {
     this.post.category = this.newPostForm.value.newPostData.category;
     this.post.postBody = this.newPostForm.value.newPostData.postBody;
     this.postService.addNews(this.post).subscribe(res => {
-      this.newPostForm.reset();
-      this.initForm();
       this.route.navigate(['']);
     });
   }
