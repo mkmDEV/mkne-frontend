@@ -1,5 +1,5 @@
 import {Injectable} from '@angular/core';
-import {HttpClient, HttpHeaders} from '@angular/common/http';
+import {HttpClient, HttpHeaders, HttpParams} from '@angular/common/http';
 
 import {Observable, of} from 'rxjs';
 
@@ -27,6 +27,16 @@ export class PostService {
       .pipe(
         tap($ => this.log('fetched news')),
         catchError(this.handleError<Post[]>('getNews', []))
+      );
+  }
+
+  findPosts(q: string): Observable<Post[]> {
+    let params = new HttpParams()
+      .set('q', q);
+    return this.http.get<Post[]>(this.postsUrl + '/search', {params})
+      .pipe(
+        tap($ => this.log('found posts')),
+        catchError(this.handleError<Post[]>('findPosts', []))
       );
   }
 
