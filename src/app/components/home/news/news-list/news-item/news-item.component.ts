@@ -1,7 +1,17 @@
-import {Component, EventEmitter, Input, OnInit, Output, ViewChild} from '@angular/core';
+import {Component, EventEmitter, Input, OnInit, Output, TemplateRef, ViewChild} from '@angular/core';
 import {Post} from '../../../../../models/Post';
-import {faCalendar, faHashtag, faPen, faTrash, faUser} from '@fortawesome/free-solid-svg-icons';
+import {
+  faCalendar,
+  faCheckCircle,
+  faExclamationTriangle,
+  faHashtag,
+  faPen,
+  faTimesCircle,
+  faTrash,
+  faUser
+} from '@fortawesome/free-solid-svg-icons';
 import {PostService} from '../../../../../services/post.service';
+import {BsModalRef, BsModalService} from 'ngx-bootstrap';
 
 @Component({
   selector: 'app-news-item',
@@ -19,17 +29,27 @@ export class NewsItemComponent implements OnInit {
   faUser = faUser;
   faCalendar = faCalendar;
   faHashtag = faHashtag;
+  faExclamationTriangle = faExclamationTriangle;
+  faTimesCircle = faTimesCircle;
+  faCheckCircle = faCheckCircle;
   editable = false;
+  modalRef = BsModalRef.prototype;
 
   constructor(
-    private postService: PostService) {
+    private postService: PostService,
+    private modalService: BsModalService) {
   }
 
   ngOnInit() {
   }
 
+  openModal(template: TemplateRef<any>) {
+    this.modalRef = this.modalService.show(template);
+  }
+
   onDelete(news: Post) {
     this.deleted.emit(news);
+    this.modalRef.hide();
   }
 
   onEdit(news: Post) {

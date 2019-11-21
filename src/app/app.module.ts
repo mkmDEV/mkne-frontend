@@ -39,10 +39,10 @@ import {SearchItemComponent} from './components/home/top-nav-bar/search/search-d
     NewsListComponent,
     SearchComponent,
     SearchDetailComponent,
+    SearchItemComponent,
     SidebarComponent,
     TopNavBarComponent,
     WeatherWidgetComponent,
-    SearchItemComponent,
   ],
   imports: [
     AlertModule.forRoot(),
