@@ -1,24 +1,19 @@
 @import url('https://fonts.googleapis.com/css?family=Roboto&display=swap');
 
-.bg-custom {
-  background-color: #0c0026 !important;
-}
+.navbar-nav {
+  .nav-item {
+    font-family: Roboto, serif;
+    font-style: normal;
+    font-weight: 500;
+    font-size: 18px;
+    color: #122C2F;
+    text-transform: uppercase;
+    line-height: 138.6%;
+    display: flex;
+    align-items: center;
 
-.nav-item {
-  font-family: Roboto, serif;
-  font-style: normal;
-  font-weight: 500;
-  font-size: 18px;
-  line-height: 138.6%;
-  /* identical to box height, or 25px */
-
-  display: flex;
-  align-items: center;
-  text-transform: uppercase;
-
-  color: #122C2F;
-}
-
-.pointer {
-  cursor: pointer;
+    .nav-link {
+      cursor: pointer;
+    }
+  }
 }

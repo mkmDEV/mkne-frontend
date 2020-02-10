@@ -1,43 +1,34 @@
-* {
-  padding: 0;
-  margin: 0 auto;
-}
-
-body {
-  overflow: hidden;
-}
-
 .logo {
-  position: relative;
   width: 8vw;
   height: 2vw;
   font-size: 2vw;
   font-weight: bold;
   font-style: italic;
   text-shadow: 0.1vw 0.1vw rgba(35, 69, 3, 0.3);
-}
+  position: relative;
 
-.logo::before, .logo::after {
-  content: attr(data-logo);
-  position: absolute;
-  z-index: -1;
-  left: 0;
-  text-align: center;
-  width: 100%;
-  animation: straightLine 4s ease-in infinite;
-}
+  &::before, &::after {
+    content: attr(data-logo);
+    width: 100%;
+    text-align: center;
+    position: absolute;
+    left: 0;
+    z-index: -1;
+    animation: straightLine 4s ease-in infinite;
+  }
 
-.logo::before {
-  color: #83be03;
-}
+  &::before {
+    color: #83be03;
+  }
 
-.logo::after {
-  color: #fff;
-  animation-delay: -2s;
-}
+  &::after {
+    color: #ffffff;
+    animation-delay: -2s;
+  }
 
-@keyframes straightLine {
-  50% {
-    transform: translate3D(2vh, -2vh, 0);
+  @keyframes straightLine {
+    50% {
+      transform: translate3D(2vh, -2vh, 0);
+    }
   }
 }
