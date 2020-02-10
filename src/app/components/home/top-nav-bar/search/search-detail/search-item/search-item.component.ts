@@ -5,7 +5,7 @@ import {PostService} from '../../../../../../services/post.service';
 @Component({
   selector: 'app-search-item',
   templateUrl: './search-item.component.html',
-  styleUrls: ['./search-item.component.css']
+  styleUrls: ['./search-item.component.scss']
 })
 export class SearchItemComponent implements OnInit {
   @Input() searchItem: Post;

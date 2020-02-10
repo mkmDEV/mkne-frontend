@@ -9,7 +9,7 @@ import {Router} from '@angular/router';
 @Component({
   selector: 'app-add-news',
   templateUrl: './add-news.component.html',
-  styleUrls: ['./add-news.component.css']
+  styleUrls: ['./add-news.component.scss']
 })
 export class AddNewsComponent implements OnInit {
   @ViewChild('f', {static: false}) newPostForm: NgForm;
