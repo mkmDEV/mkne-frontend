@@ -5,7 +5,7 @@ import {PostService} from '../../../../services/post.service';
 @Component({
   selector: 'app-adverts',
   templateUrl: './adverts.component.html',
-  styleUrls: ['./adverts.component.css']
+  styleUrls: ['./adverts.component.scss']
 })
 export class AdvertsComponent implements OnInit {
   ads: Post[];

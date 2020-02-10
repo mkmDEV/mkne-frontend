@@ -6,7 +6,7 @@ import {PostService} from '../../../../../services/post.service';
 @Component({
   selector: 'app-search-detail',
   templateUrl: './search-detail.component.html',
-  styleUrls: ['./search-detail.component.css']
+  styleUrls: ['./search-detail.component.scss']
 })
 export class SearchDetailComponent implements OnInit, OnDestroy {
   private routeSub: any;

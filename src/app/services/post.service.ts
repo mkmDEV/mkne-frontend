@@ -1,18 +1,17 @@
 import {Injectable} from '@angular/core';
 import {HttpClient, HttpHeaders, HttpParams} from '@angular/common/http';
-
 import {Observable, of} from 'rxjs';
-
 import {Post} from '../models/Post';
 import {catchError, tap} from 'rxjs/operators';
+import {environment} from '../../environments/environment';
 
-@Injectable({
-  providedIn: 'root'
-})
+@Injectable()
 export class PostService {
 
-  private postsUrl = 'http://localhost:8080/posts';
-  private newsUrl = this.postsUrl + '/news';
+  readonly api = {
+    newsUrl: `${environment.newsUrl}`,
+    postsUrl: `${environment.postsUrl}`,
+  };
 
   httpOptions = {
     headers: new HttpHeaders({'Content-Type': 'application/json'})
@@ -23,7 +22,7 @@ export class PostService {
   }
 
   getNews(): Observable<Post[]> {
-    return this.http.get<Post[]>(this.newsUrl)
+    return this.http.get<Post[]>(this.api.newsUrl)
       .pipe(
         tap($ => this.log('fetched news')),
         catchError(this.handleError<Post[]>('getNews', []))
@@ -31,9 +30,9 @@ export class PostService {
   }
 
   findPosts(q: string): Observable<Post[]> {
-    let params = new HttpParams()
+    const params = new HttpParams()
       .set('q', q);
-    return this.http.get<Post[]>(this.postsUrl + '/search', {params})
+    return this.http.get<Post[]>(this.api.postsUrl + '/search', {params})
       .pipe(
         tap($ => this.log('found posts')),
         catchError(this.handleError<Post[]>('findPosts', []))
@@ -41,7 +40,7 @@ export class PostService {
   }
 
   getNewsItem(id): Observable<Post> {
-    return this.http.get<Post>(`${this.newsUrl}/${id}`)
+    return this.http.get<Post>(`${this.api.newsUrl}/${id}`)
       .pipe(
         tap($ => this.log(`fetched news with id ${id}`)),
         catchError(this.handleError<Post>('getNewsItem'))
@@ -49,7 +48,7 @@ export class PostService {
   }
 
   getAds(): Observable<Post[]> {
-    return this.http.get<Post[]>(this.postsUrl + '/ads')
+    return this.http.get<Post[]>(`${this.api.postsUrl}/ads`)
       .pipe(
         tap($ => this.log('fetched ads')),
         catchError(this.handleError<Post[]>('getAds', []))
@@ -57,15 +56,14 @@ export class PostService {
   }
 
   addNews(news: Post): Observable<Post> {
-    return this.http.post<Post>(this.postsUrl, news, this.httpOptions)
+    return this.http.post<Post>(`${this.api.postsUrl}`, news, this.httpOptions)
       .pipe(
         tap((newNews: Post) => this.log(`added news width id=${newNews.id}`)),
         catchError(this.handleError<Post>('addNews')));
   }
 
   updateNews(news: Post): Observable<any> {
-    // return this.http.put(`${this.newsUrl}/${news.id}`, this.httpOptions)
-    return this.http.put<Post>(`${this.postsUrl}/${news.id}`, news, this.httpOptions)
+    return this.http.put<Post>(`${this.api.postsUrl}/${news.id}`, news, this.httpOptions)
       .pipe(
         tap($ => this.log(`updated product id=${news.id}`)),
         catchError(this.handleError<any>('updateNews'))
@@ -73,7 +71,7 @@ export class PostService {
   }
 
   deletePost(post: Post): Observable<Post> {
-    return this.http.delete<Post>(`${this.postsUrl}/${post.id}`)
+    return this.http.delete<Post>(`${this.api.postsUrl}/${post.id}`)
       .pipe(
         tap($ => this.log(`Post deleted with id: ${post.id}`)),
         catchError(this.handleError<Post>('deletePost'))

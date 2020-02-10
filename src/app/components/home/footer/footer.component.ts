@@ -4,7 +4,7 @@ import {faBuilding, faEnvelope, faHome, faMobile, faPhone} from '@fortawesome/fr
 @Component({
   selector: 'app-footer',
   templateUrl: './footer.component.html',
-  styleUrls: ['./footer.component.css']
+  styleUrls: ['./footer.component.scss']
 })
 export class FooterComponent implements OnInit {
   CURRENT_YEAR = new Date().getFullYear();

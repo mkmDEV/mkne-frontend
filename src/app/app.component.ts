@@ -4,7 +4,7 @@ import {Meta, Title} from '@angular/platform-browser';
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
-  styleUrls: ['./app.component.css']
+  styleUrls: ['./app.component.scss']
 })
 export class AppComponent {
   title = 'Magyar Környezeti Nevelési Egyesület';

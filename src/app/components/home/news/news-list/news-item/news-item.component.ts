@@ -16,7 +16,7 @@ import {BsModalRef, BsModalService} from 'ngx-bootstrap';
 @Component({
   selector: 'app-news-item',
   templateUrl: './news-item.component.html',
-  styleUrls: ['./news-item.component.css']
+  styleUrls: ['./news-item.component.scss']
 })
 export class NewsItemComponent implements OnInit {
   @Input() news: Post;

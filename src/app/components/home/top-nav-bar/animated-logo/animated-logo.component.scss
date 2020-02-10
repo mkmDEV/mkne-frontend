@@ -1,0 +1,34 @@
+.logo {
+  width: 8vw;
+  height: 2vw;
+  font-size: 2vw;
+  font-weight: bold;
+  font-style: italic;
+  text-shadow: 0.1vw 0.1vw rgba(35, 69, 3, 0.3);
+  position: relative;
+
+  &::before, &::after {
+    content: attr(data-logo);
+    width: 100%;
+    text-align: center;
+    position: absolute;
+    left: 0;
+    z-index: -1;
+    animation: straightLine 4s ease-in infinite;
+  }
+
+  &::before {
+    color: #83be03;
+  }
+
+  &::after {
+    color: #ffffff;
+    animation-delay: -2s;
+  }
+
+  @keyframes straightLine {
+    50% {
+      transform: translate3D(2vh, -2vh, 0);
+    }
+  }
+}

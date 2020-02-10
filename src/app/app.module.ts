@@ -23,6 +23,7 @@ import {SearchComponent} from './components/home/top-nav-bar/search/search.compo
 import {SearchDetailComponent} from './components/home/top-nav-bar/search/search-detail/search-detail.component';
 import {WeatherWidgetComponent} from './components/home/sidebar/weather-widget/weather-widget.component';
 import {SearchItemComponent} from './components/home/top-nav-bar/search/search-detail/search-item/search-item.component';
+import {PostService} from './services/post.service';
 
 @NgModule({
   declarations: [
@@ -57,7 +58,9 @@ import {SearchItemComponent} from './components/home/top-nav-bar/search/search-d
     PopoverModule,
     TooltipModule.forRoot()
   ],
-  providers: [],
+  providers: [
+    PostService
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule {

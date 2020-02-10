@@ -1,0 +1,19 @@
+@import url('https://fonts.googleapis.com/css?family=Roboto&display=swap');
+
+.navbar-nav {
+  .nav-item {
+    font-family: Roboto, serif;
+    font-style: normal;
+    font-weight: 500;
+    font-size: 18px;
+    color: #122C2F;
+    text-transform: uppercase;
+    line-height: 138.6%;
+    display: flex;
+    align-items: center;
+
+    .nav-link {
+      cursor: pointer;
+    }
+  }
+}
