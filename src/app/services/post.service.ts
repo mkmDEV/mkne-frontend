@@ -8,23 +8,27 @@ import {environment} from '../../environments/environment';
 @Injectable()
 export class PostService {
 
-  readonly api = {
-    newsUrl: `${environment.newsUrl}`,
-    postsUrl: `${environment.postsUrl}`,
-  };
-
-  httpOptions = {
-    headers: new HttpHeaders({'Content-Type': 'application/json'})
-  };
-
   constructor(
     private http: HttpClient) {
   }
 
+  readonly api = {
+    NEWS_URL: environment.NEWS_URL,
+    POSTS_URL: environment.POSTS_URL,
+  };
+
+  private httpOptions = {
+    headers: new HttpHeaders({'Content-Type': 'application/json'})
+  };
+
+  private static log(message: string) {
+    console.log(`PostService: ${message}`);
+  }
+
   getNews(): Observable<Post[]> {
-    return this.http.get<Post[]>(this.api.newsUrl)
+    return this.http.get<Post[]>(this.api.NEWS_URL)
       .pipe(
-        tap($ => this.log('fetched news')),
+        tap(() => PostService.log('fetched news')),
         catchError(this.handleError<Post[]>('getNews', []))
       );
   }
@@ -32,48 +36,48 @@ export class PostService {
   findPosts(q: string): Observable<Post[]> {
     const params = new HttpParams()
       .set('q', q);
-    return this.http.get<Post[]>(this.api.postsUrl + '/search', {params})
+    return this.http.get<Post[]>(this.api.POSTS_URL + '/search', {params})
       .pipe(
-        tap($ => this.log('found posts')),
+        tap(() => PostService.log('found posts')),
         catchError(this.handleError<Post[]>('findPosts', []))
       );
   }
 
   getNewsItem(id): Observable<Post> {
-    return this.http.get<Post>(`${this.api.newsUrl}/${id}`)
+    return this.http.get<Post>(`${this.api.NEWS_URL}/${id}`)
       .pipe(
-        tap($ => this.log(`fetched news with id ${id}`)),
+        tap(() => PostService.log(`fetched news with id ${id}`)),
         catchError(this.handleError<Post>('getNewsItem'))
       );
   }
 
   getAds(): Observable<Post[]> {
-    return this.http.get<Post[]>(`${this.api.postsUrl}/ads`)
+    return this.http.get<Post[]>(`${this.api.POSTS_URL}/ads`)
       .pipe(
-        tap($ => this.log('fetched ads')),
+        tap(() => PostService.log('fetched ads')),
         catchError(this.handleError<Post[]>('getAds', []))
       );
   }
 
   addNews(news: Post): Observable<Post> {
-    return this.http.post<Post>(`${this.api.postsUrl}`, news, this.httpOptions)
+    return this.http.post<Post>(`${this.api.POSTS_URL}`, news, this.httpOptions)
       .pipe(
-        tap((newNews: Post) => this.log(`added news width id=${newNews.id}`)),
+        tap((newNews: Post) => PostService.log(`added news width id=${newNews.id}`)),
         catchError(this.handleError<Post>('addNews')));
   }
 
   updateNews(news: Post): Observable<any> {
-    return this.http.put<Post>(`${this.api.postsUrl}/${news.id}`, news, this.httpOptions)
+    return this.http.put<Post>(`${this.api.POSTS_URL}/${news.id}`, news, this.httpOptions)
       .pipe(
-        tap($ => this.log(`updated product id=${news.id}`)),
+        tap(() => PostService.log(`updated product id=${news.id}`)),
         catchError(this.handleError<any>('updateNews'))
       );
   }
 
   deletePost(post: Post): Observable<Post> {
-    return this.http.delete<Post>(`${this.api.postsUrl}/${post.id}`)
+    return this.http.delete<Post>(`${this.api.POSTS_URL}/${post.id}`)
       .pipe(
-        tap($ => this.log(`Post deleted with id: ${post.id}`)),
+        tap(() => PostService.log(`Post deleted with id: ${post.id}`)),
         catchError(this.handleError<Post>('deletePost'))
       );
   }
@@ -89,14 +93,10 @@ export class PostService {
 
       console.error(error); // log to console instead
 
-      this.log(`${operation} failed: ${error.message}`);
+      PostService.log(`${operation} failed: ${error.message}`);
 
       // Let the app keep running by returning an empty result.
       return of(result as T);
     };
-  }
-
-  private log(message: string) {
-    console.log(`PostService: ${message}`);
   }
 }
