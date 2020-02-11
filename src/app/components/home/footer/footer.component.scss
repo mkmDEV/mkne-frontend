@@ -1,5 +1,7 @@
+@import "../../../../config";
+
 .page-footer {
-  background-color: #0c0026;
-  color: #ffffff;
+  background-color: $footer-background;
+  color: $white;
   font-size: 0.9rem;
 }

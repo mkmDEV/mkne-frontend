@@ -1,7 +1,11 @@
-form {
-  padding: 1vw 0;
-}
+@import "../../../../../../../config.scss";
 
-.form-control.ng-invalid.ng-touched {
-  border: 1px solid red;
+.container {
+  padding-top: 1vh;
+
+  .add-post {
+    .form-control.ng-invalid.ng-touched {
+      border: 1px solid $red;
+    }
+  }
 }

@@ -1,18 +1,20 @@
 @charset "utf-8";
+@import "config";
 
 *, *::before, *::after {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
+}
 
+body {
+  padding-top: 15vw;
+  background-color: $white;
+  overflow-y: scroll;
+}
+
+@media (min-width: 992px) {
   body {
-    padding-top: 15vw;
-    background-color: rgba(255, 255, 255, 1);
-  }
-
-  @media (min-width: 992px) {
-    body {
-      padding-top: 5vw;
-    }
+    padding-top: 5vw;
   }
 }
