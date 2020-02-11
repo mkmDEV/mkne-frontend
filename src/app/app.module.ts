@@ -24,6 +24,7 @@ import {SearchDetailComponent} from './components/home/top-nav-bar/search/search
 import {WeatherWidgetComponent} from './components/home/sidebar/weather-widget/weather-widget.component';
 import {SearchItemComponent} from './components/home/top-nav-bar/search/search-detail/search-item/search-item.component';
 import {PostService} from './services/post.service';
+import {WeatherService} from './services/weather.service';
 
 @NgModule({
   declarations: [
@@ -59,7 +60,8 @@ import {PostService} from './services/post.service';
     TooltipModule.forRoot()
   ],
   providers: [
-    PostService
+    PostService,
+    WeatherService
   ],
   bootstrap: [AppComponent]
 })
