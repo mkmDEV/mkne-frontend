@@ -1,4 +1,5 @@
 @import url('https://fonts.googleapis.com/css?family=Roboto&display=swap');
+@import "../../../../config.scss";
 
 .navbar-nav {
   .nav-item {
@@ -6,7 +7,7 @@
     font-style: normal;
     font-weight: 500;
     font-size: 18px;
-    color: #122C2F;
+    color: $navbar-color;
     text-transform: uppercase;
     line-height: 138.6%;
     display: flex;

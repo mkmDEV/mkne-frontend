@@ -1,3 +1,5 @@
+@import "../../../../config.scss";
+
 carousel {
 
   slide {
@@ -5,7 +7,7 @@ carousel {
   }
 
   .carousel-caption {
-    color: rgba(255, 255, 255, 100);
+    color: $white;
   }
 
   .carousel-caption h3 {
@@ -17,6 +19,10 @@ carousel {
   }
 
   .carousel-item:after {
+    $blue-35: rgba(19, 78, 94, 0.35);
+    $blue-100: rgba(19, 78, 94, 100);
+    $green-35: rgba(113, 178, 128, 0.35);
+    $green-20: rgba(113, 178, 128, 0.2);
     content: "";
     display: block;
     position: absolute;
@@ -24,16 +30,13 @@ carousel {
     bottom: 0;
     left: 0;
     right: 0;
-    /*TODO
-       FIND OUT how to start gradient with ~35% opacitry and finish with full transparent like the proto in figma
-       */
-    background: rgba(19, 78, 94, 0.35);
-    background: -moz-linear-gradient(left, rgba(19, 78, 94, 0.35) 0%, rgba(113, 178, 128, 0.35) 100%);
-    -webkit-mask-background: -webkit-gradient(linear, left top, right top, from(rgba(19, 78, 94, 0.35)), to(rgba(113, 178, 128, 0)));
-    background: -webkit-linear-gradient(left, rgba(19, 78, 94, 0.35) 0%, rgba(113, 178, 128, 0.35) 100%);
-    background: -o-linear-gradient(left, rgba(19, 78, 94, 100) 0%, rgba(113, 178, 128, 0.2) 100%);
-    background: -ms-linear-gradient(left, rgba(19, 78, 94, 100) 0%, rgba(113, 178, 128, 0.2) 100%);
-    background: linear-gradient(to right, rgba(19, 78, 94, 100) 0%, rgba(113, 178, 128, 0.2) 100%);
+    background: $blue-35;
+    background: -moz-linear-gradient(left, $blue-35 0%, $green-35 100%);
+    -webkit-mask-background: -webkit-gradient(linear, left top, right top, from($blue-35), to(rgba(113, 178, 128, 0)));
+    background: -webkit-linear-gradient(left, $blue-35 0%, $green-35 100%);
+    background: -o-linear-gradient(left, $blue-100 0%, $green-20 100%);
+    background: -ms-linear-gradient(left, $blue-100 0%, $green-20 100%);
+    background: linear-gradient(to right, $blue-100 0%, $green-20 100%);
     filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#134e5e', endColorstr='#71b280', GradientType=1);
   }
 }
