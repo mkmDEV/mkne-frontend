@@ -14,7 +14,7 @@ export class TopNavBarComponent implements OnInit {
 
   constructor(private route: ActivatedRoute) {
     this.routeSub = route.params.subscribe(params => {
-      this.query = params['q'];
+      this.query = params.q;
     });
   }
 
