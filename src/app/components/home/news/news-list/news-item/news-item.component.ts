@@ -54,6 +54,7 @@ export class NewsItemComponent implements OnInit {
 
   onEdit(news: Post) {
     this.editable = !this.editable;
+    this.setFocusOnPostText();
   }
 
   onEnter(news: Post) {
@@ -65,6 +66,10 @@ export class NewsItemComponent implements OnInit {
 
   onEsc() {
     this.resetEditable();
+  }
+
+  private setFocusOnPostText() {
+    setTimeout(() => this.postText.nativeElement.focus(), 0);
   }
 
   private resetEditable() {
