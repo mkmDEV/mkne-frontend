@@ -21,7 +21,7 @@ export class SearchDetailComponent implements OnInit, OnDestroy {
 
   ngOnInit() {
     this.routeSub = this.route.params.subscribe(params => {
-      this.query = params['q'];
+      this.query = params.q;
       this.getResponse();
     });
   }
