@@ -1,17 +1,12 @@
 # TODOs
 
-- [ ] create theme.scss file to root folder
+- [x] `OPTIONAL` change favicon
+- [x] `FEATURE` create theme.scss file to root folder
     * primary color (blue?)
     * accent color (green)
-    * shades
+    * ~~shades~~
     * ~~warning (yellow)~~ **inherited from Bootstrap**
     * ~~error (red)~~ **inherited from Bootstrap**
-
-- [ ] create _config.scss file to root folder
-    * font-family
-
-
-- [x] `OPTIONAL` change favicon
 - [x] `FEATURE` Form input
 - [x] `FEATURE` footer
 - [x] `FEATURE` Implement backend endpoint for __search details__ page
@@ -22,3 +17,4 @@
 - [X] `TO FIX` __Carousel__'s text which is now appears in mobile layout
 - [ ] `FEATURE` ~~__Translate__ the whole page to Hungarian instead of Englis due it's content~~
 - [ ] `REFACTOR` ~~transfer __carousel__ from burnt-in to \*ngFor style~~
+- [ ] `REFACTOR` Refactor main and home structure

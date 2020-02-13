@@ -14,7 +14,7 @@ import {Router} from '@angular/router';
 export class AddNewsComponent implements OnInit {
   @ViewChild('f', {static: false}) newPostForm: NgForm;
   faPlus = faPlusCircle;
-  defaultCategory = 'NEWS';
+  categories: string[] = [];
   loggedInUsername = '';
   isPublished = false;
   submitted = false;
@@ -39,15 +39,6 @@ export class AddNewsComponent implements OnInit {
     this.initForm();
   }
 
-  initForm() {
-    this.memberService.getDummyUser().subscribe(author => {
-      this.post.author = author;
-      this.loggedInUsername = this.post.author.username;
-    });
-    this.post.category = this.defaultCategory;
-    this.post.isPublished = false;
-  }
-
   onSubmit(f: NgForm) {
     this.submitted = true;
     this.post.title = this.newPostForm.value.newPostData.title;
@@ -57,5 +48,21 @@ export class AddNewsComponent implements OnInit {
     this.postService.addNews(this.post).subscribe(res => {
       this.route.navigate(['']);
     });
+  }
+
+  private initForm() {
+    this.getCategories();
+    this.memberService.getDummyUser().subscribe(author => {
+      this.post.author = author;
+      this.loggedInUsername = this.post.author.username;
+    });
+    this.post.isPublished = false;
+  }
+
+  private getCategories() {
+    this.postService.getCategories().subscribe(
+      (categories: string[]) => {
+        this.categories = categories;
+      });
   }
 }

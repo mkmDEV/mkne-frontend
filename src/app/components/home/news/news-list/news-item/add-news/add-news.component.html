@@ -47,13 +47,10 @@
                       name="category"
                       aria-label="Category"
                       #category="ngModel"
-                      [ngModel]="defaultCategory"
+                      [(ngModel)]="categories[0]"
                       required>
-                <option value="NEWS">News</option>
-                <option value="REPORT">Report</option>
-                <option value="CONFERENCE">Conference</option>
-                <option value="INVITATION">Invitation</option>
-                <option value="ADVERT">Advert</option>
+                <option *ngFor="let category of categories"
+                        [value]="category.valueOf()">{{ category | titlecase }}</option>
               </select>
             </div>
             <alert type="danger" class="small form-text ml-2" *ngIf="!category.valid && category.touched">Please choose
