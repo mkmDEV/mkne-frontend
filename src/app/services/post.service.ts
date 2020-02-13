@@ -25,11 +25,18 @@ export class PostService {
     console.log(`PostService: ${message}`);
   }
 
-  getNews(): Observable<Post[]> {
-    return this.http.get<Post[]>(this.api.NEWS_URL)
+  addNews(news: Post): Observable<Post> {
+    return this.http.post<Post>(`${this.api.POSTS_URL}`, news, this.httpOptions)
       .pipe(
-        tap(() => PostService.log('fetched news')),
-        catchError(this.handleError<Post[]>('getNews', []))
+        tap((newNews: Post) => PostService.log(`added news width id=${newNews.id}`)),
+        catchError(this.handleError<Post>('addNews')));
+  }
+
+  deletePost(post: Post): Observable<Post> {
+    return this.http.delete<Post>(`${this.api.POSTS_URL}/${post.id}`)
+      .pipe(
+        tap(() => PostService.log(`Post deleted with id: ${post.id}`)),
+        catchError(this.handleError<Post>('deletePost'))
       );
   }
 
@@ -43,14 +50,6 @@ export class PostService {
       );
   }
 
-  getNewsItem(id): Observable<Post> {
-    return this.http.get<Post>(`${this.api.NEWS_URL}/${id}`)
-      .pipe(
-        tap(() => PostService.log(`fetched news with id ${id}`)),
-        catchError(this.handleError<Post>('getNewsItem'))
-      );
-  }
-
   getAds(): Observable<Post[]> {
     return this.http.get<Post[]>(`${this.api.POSTS_URL}/ads`)
       .pipe(
@@ -59,11 +58,24 @@ export class PostService {
       );
   }
 
-  addNews(news: Post): Observable<Post> {
-    return this.http.post<Post>(`${this.api.POSTS_URL}`, news, this.httpOptions)
+  getCategories(): Observable<string[]> {
+    return this.http.get<string[]>(`${this.api.POSTS_URL}/categories`);
+  }
+
+  getNews(): Observable<Post[]> {
+    return this.http.get<Post[]>(this.api.NEWS_URL)
       .pipe(
-        tap((newNews: Post) => PostService.log(`added news width id=${newNews.id}`)),
-        catchError(this.handleError<Post>('addNews')));
+        tap(() => PostService.log('fetched news')),
+        catchError(this.handleError<Post[]>('getNews', []))
+      );
+  }
+
+  getNewsItem(id): Observable<Post> {
+    return this.http.get<Post>(`${this.api.NEWS_URL}/${id}`)
+      .pipe(
+        tap(() => PostService.log(`fetched news with id ${id}`)),
+        catchError(this.handleError<Post>('getNewsItem'))
+      );
   }
 
   updateNews(news: Post): Observable<any> {
@@ -71,14 +83,6 @@ export class PostService {
       .pipe(
         tap(() => PostService.log(`updated product id=${news.id}`)),
         catchError(this.handleError<any>('updateNews'))
-      );
-  }
-
-  deletePost(post: Post): Observable<Post> {
-    return this.http.delete<Post>(`${this.api.POSTS_URL}/${post.id}`)
-      .pipe(
-        tap(() => PostService.log(`Post deleted with id: ${post.id}`)),
-        catchError(this.handleError<Post>('deletePost'))
       );
   }
 
