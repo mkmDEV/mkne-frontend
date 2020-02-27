@@ -1,5 +1,8 @@
 import {Component, OnInit} from '@angular/core';
 import {ActivatedRoute} from '@angular/router';
+import {BsModalRef, BsModalService} from 'ngx-bootstrap';
+import {LoginComponent} from './auth/login/login.component';
+import {faUser} from '@fortawesome/free-solid-svg-icons/faUser';
 
 @Component({
   selector: 'app-top-nav-bar',
@@ -11,8 +14,12 @@ export class TopNavBarComponent implements OnInit {
   query: string;
   private routeSub: any;
   navbarOpen = false;
+  modalRef = BsModalRef.prototype;
+  faUser = faUser;
 
-  constructor(private route: ActivatedRoute) {
+  constructor(
+    private route: ActivatedRoute,
+    private modalService: BsModalService) {
     this.routeSub = route.params.subscribe(params => {
       this.query = params.q;
     });
@@ -20,6 +27,12 @@ export class TopNavBarComponent implements OnInit {
 
   ngOnInit() {
     this.title = 'MKNE';
+  }
+
+  openModal() {
+    this.modalRef = this.modalService.show(LoginComponent);
+    this.modalRef.content.closeBtnName = 'Close';
+
   }
 
   ngOnDestroy() {

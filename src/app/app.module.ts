@@ -25,6 +25,8 @@ import {WeatherWidgetComponent} from './components/home/sidebar/weather-widget/w
 import {SearchItemComponent} from './components/home/top-nav-bar/search/search-detail/search-item/search-item.component';
 import {PostService} from './services/post.service';
 import {WeatherService} from './services/weather.service';
+import {LoginComponent} from './components/home/top-nav-bar/auth/login/login.component';
+import {RegisterComponent} from './components/home/top-nav-bar/auth/register/register.component';
 
 @NgModule({
   declarations: [
@@ -36,9 +38,11 @@ import {WeatherService} from './services/weather.service';
     CarouselComponent,
     FooterComponent,
     HomeComponent,
+    LoginComponent,
     NewsComponent,
     NewsItemComponent,
     NewsListComponent,
+    RegisterComponent,
     SearchComponent,
     SearchDetailComponent,
     SearchItemComponent,

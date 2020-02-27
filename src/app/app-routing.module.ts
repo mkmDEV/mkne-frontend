@@ -5,12 +5,14 @@ import {HttpClientModule} from '@angular/common/http';
 import {HomeComponent} from './components/home/home.component';
 import {AddNewsComponent} from './components/home/news/news-list/news-item/add-news/add-news.component';
 import {SearchDetailComponent} from './components/home/top-nav-bar/search/search-detail/search-detail.component';
+import {LoginComponent} from './components/home/top-nav-bar/auth/login/login.component';
+import {AuthGuard} from './services/auth/auth-guard';
 
 
 const routes: Routes = [
   {path: '', component: HomeComponent},
-  {path: 'news/add', component: AddNewsComponent},
-  {path: 'search', component: SearchDetailComponent}
+  {path: 'news/add', component: AddNewsComponent, canActivate: [AuthGuard]},
+  {path: 'search', component: SearchDetailComponent},
 ];
 
 @NgModule({
@@ -18,6 +20,10 @@ const routes: Routes = [
     BrowserModule,
     HttpClientModule,
     RouterModule.forRoot(routes, {scrollPositionRestoration: 'top'})],
-  exports: [RouterModule]
+  exports: [RouterModule],
+  entryComponents: [
+    LoginComponent
+  ]
 })
-export class AppRoutingModule { }
+export class AppRoutingModule {
+}
