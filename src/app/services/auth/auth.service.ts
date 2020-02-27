@@ -15,6 +15,7 @@ const httpOptions = {
 })
 export class AuthService {
   readonly loginUrl = `${environment.LOGIN_URL}`;
+  readonly registerUrl = `${environment.REGISTER_URL}`;
   readonly loggedInMemberUrl = `${environment.LOGGED_IN_MEMBER_URL}`;
   readonly memberUrl = `${environment.MEMBER_URL}`;
 
@@ -27,6 +28,10 @@ export class AuthService {
 
   loginMember(member: Member) {
     return this.http.post<{ roles: [], email: string, token: string; }>(this.loginUrl, member, httpOptions);
+  }
+
+  registerMember(member: Member) {
+    return this.http.post<Member>(this.registerUrl, member, httpOptions);
   }
 
   getLoggedInMember() {
