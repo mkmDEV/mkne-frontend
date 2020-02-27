@@ -18,6 +18,7 @@ export class LoginComponent implements OnInit {
   firstName: string;
   lastName: string;
   userName: string;
+  message: string;
 
   constructor(
     private authService: AuthService
@@ -52,12 +53,13 @@ export class LoginComponent implements OnInit {
       this.member.username = this.userName;
       this.authService.registerMember(this.member).subscribe({
           complete: () => {
+            this.message = 'Registration successful';
             this.firstName = '';
             this.lastName = '';
             this.userName = '';
             this.email = '';
             this.password = '';
-            location.assign('');
+            this.onSwitchMode();
           }
         }
       );

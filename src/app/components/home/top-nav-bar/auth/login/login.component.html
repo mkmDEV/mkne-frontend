@@ -10,6 +10,7 @@
         </h4>
       </div>
       <div class="modal-body">
+        <alert type="success" class="small text-center form-text ml-2" *ngIf="message">{{message}}</alert>
         <form class="mt-2">
           <div *ngIf="!isLoginMode">
             <div class="form-group">
