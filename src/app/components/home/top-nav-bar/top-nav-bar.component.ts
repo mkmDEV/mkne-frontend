@@ -1,10 +1,10 @@
-import {Component, OnInit} from '@angular/core';
-import {ActivatedRoute} from '@angular/router';
+import { Component, OnInit } from '@angular/core';
+import { ActivatedRoute } from '@angular/router';
 
 @Component({
   selector: 'app-top-nav-bar',
   templateUrl: './top-nav-bar.component.html',
-  styleUrls: ['./top-nav-bar.component.scss']
+  styleUrls: ['./top-nav-bar.component.scss'],
 })
 export class TopNavBarComponent implements OnInit {
   title: string;
@@ -31,6 +31,6 @@ export class TopNavBarComponent implements OnInit {
   }
 
   scroll($event: MouseEvent) {
-    document.getElementById('contact').scrollIntoView({behavior: 'smooth'});
+    document.getElementById('contact').scrollIntoView({ behavior: 'smooth' });
   }
 }

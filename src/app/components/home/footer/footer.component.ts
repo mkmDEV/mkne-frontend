@@ -1,16 +1,23 @@
-import {Component, OnInit} from '@angular/core';
-import {faBuilding, faEnvelope, faHome, faMobile, faPhone} from '@fortawesome/free-solid-svg-icons';
+import { Component, OnInit } from '@angular/core';
+import {
+  faBuilding,
+  faEnvelope,
+  faHome,
+  faMobile,
+  faPhone,
+} from '@fortawesome/free-solid-svg-icons';
 
 @Component({
   selector: 'app-footer',
   templateUrl: './footer.component.html',
-  styleUrls: ['./footer.component.scss']
+  styleUrls: ['./footer.component.scss'],
 })
 export class FooterComponent implements OnInit {
   CURRENT_YEAR = new Date().getFullYear();
   COMPANY_NAME = 'Magyar Környezeti Nevelési Egyesület';
   SHORT_COMPANY_NAME = 'MKNE';
-  MISSION = 'A társadalom ismereteinek, környezeti tudatosságának és felelősségének fejlesztése, gondolkodásának és életmódjának környezetbaráttá alakítása a küldetésünk.';
+  MISSION =
+    'A társadalom ismereteinek, környezeti tudatosságának és felelősségének fejlesztése, gondolkodásának és életmódjának környezetbaráttá alakítása a küldetésünk.';
   COMPANY_ADDRESS = '1031. ' + 'Budapest' + ', ' + 'Váci Mihály tér 4.';
   OFFICE_ADDRESS = '1119. ' + 'Budapest' + ', ' + 'Etele út 59-61.';
   COMPANY_EMAIL = 'mkne@mkne.hu';
@@ -23,10 +30,7 @@ export class FooterComponent implements OnInit {
   faPhone = faPhone;
   faMobile = faMobile;
 
-  constructor() {
-  }
+  constructor() {}
 
-  ngOnInit() {
-  }
-
+  ngOnInit(): void {}
 }

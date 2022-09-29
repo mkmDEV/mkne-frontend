@@ -1,50 +1,59 @@
 <article>
   <header class="d-flex flex-row mb-2">
     <div class="p-3 col-1">
-      <img src="{{puli}}" alt="puli"/>
+      <img alt="puli" class="article__image" src="{{ puli }}" />
     </div>
     <div class="p-2 col-lg-11">
-      <h2 class="h2">{{news.title}}</h2>
+      <h2 class="h2">{{ news.title }}</h2>
       <div class="container">
         <div class="row text-secondary">
           <div class="col-lg-2">
-            <fa-icon size="xs" title="category" [icon]="faHashtag"></fa-icon>
-            {{news.category | lowercase}}
+            <fa-icon [icon]="faHashtag" size="xs" title="category"></fa-icon>
+            {{ news.category | lowercase }}
           </div>
           <div class="col-lg-3">
-            <fa-icon size="xs" title="author" [icon]="faUser"></fa-icon>
+            <fa-icon [icon]="faUser" size="xs" title="author"></fa-icon>
             {{ news.author.lastName }} {{ news.author.firstName }}
           </div>
           <div class="col-lg-auto">
-            <fa-icon size="xs" title="post date" [icon]="faCalendar"></fa-icon>
-            {{news.publishDate | date: 'yyyy. MM. dd. HH:mm'  : 'GTM+1'}}
+            <fa-icon [icon]="faCalendar" size="xs" title="post date"></fa-icon>
+            {{ news.publishDate | date: 'yyyy. MM. dd. HH:mm':'GTM+1' }}
           </div>
         </div>
       </div>
     </div>
   </header>
   <section>
-    <p (keydown.enter)="onEnter(news)"
-       (keydown.escape)="onEsc()"
-       [contentEditable]="editable"
-       [ngClass]="{'p-3 mb-2 bg-secondary text-white shadow': editable}"
-       #postText>
-      {{news.postBody}}
+    <p
+      #postText
+      (keydown.enter)="onEnter(news)"
+      (keydown.escape)="onEsc()"
+      [contentEditable]="editable"
+      [ngClass]="{ 'p-3 mb-2 bg-secondary text-white shadow': editable }">
+      {{ news.postBody }}
     </p>
-    <small class="text-muted" *ngIf="editable">Press ENTER to save</small>
-    <small class="text-muted offset-1" *ngIf="editable">ESC to quit</small>
+    <small *ngIf="editable" class="text-muted">Press ENTER to save</small>
+    <small *ngIf="editable" class="text-muted offset-1">ESC to quit</small>
   </section>
   <footer class="d-flex flex-row float-right">
     <div class="p-1 col-1">
       <ul class="list-group list-inline list-group-horizontal">
         <li class="list-inline-item">
-          <button (click)="onEdit(news)" class="btn btn-warning btn-block" tooltip="Edit" placement="bottom">
-            <fa-icon size="lg" [icon]="faPen"></fa-icon>
+          <button
+            (click)="onEdit(news)"
+            class="btn btn-warning btn-block"
+            placement="bottom"
+            tooltip="Edit">
+            <fa-icon [icon]="faPen" size="lg"></fa-icon>
           </button>
         </li>
         <li class="list-inline-item">
-          <button (click)="openModal(template)" class="btn btn-danger" tooltip="Delete" placement="bottom">
-            <fa-icon size="lg" [icon]="faTrash"></fa-icon>
+          <button
+            (click)="openModal(template)"
+            class="btn btn-danger"
+            placement="bottom"
+            tooltip="Delete">
+            <fa-icon [icon]="faTrash" size="lg"></fa-icon>
           </button>
         </li>
       </ul>
@@ -56,18 +65,27 @@
 <ng-template #template>
   <div class="modal-header">
     <h4 class="modal-title h4 text-danger font-weight-bold pull-left">
-      <fa-icon size="lg" [icon]="faExclamationTriangle"></fa-icon>
+      <fa-icon [icon]="faExclamationTriangle" size="lg"></fa-icon>
       <span class="ml-2">Figyelem!</span>
     </h4>
   </div>
   <div class="modal-body">
-    <p class="modal-dialog">A törlés nem visszavonható. Tényleg törölni akarod ezt a bejegyzést?</p>
-    <button type="button" class="btn btn-outline-danger d-inline w-auto" aria-label="Nem"
-            (click)="modalRef.hide()">
+    <p class="modal-dialog">
+      A törlés nem visszavonható. Tényleg törölni akarod ezt a bejegyzést?
+    </p>
+    <button
+      (click)="modalRef.hide()"
+      aria-label="Nem"
+      class="btn btn-outline-danger d-inline w-auto"
+      type="button">
       <fa-icon [icon]="faTimesCircle"></fa-icon>
       <span class="ml-2">Cancel</span>
     </button>
-    <button type="button" class="btn btn-outline-success ml-2" aria-label="Igen" (click)="onDelete(news)">
+    <button
+      (click)="onDelete(news)"
+      aria-label="Igen"
+      class="btn btn-outline-success ml-2"
+      type="button">
       <fa-icon [icon]="faCheckCircle"></fa-icon>
       <span class="ml-2">Confirm delete</span>
     </button>

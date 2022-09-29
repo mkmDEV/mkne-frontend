@@ -1,7 +1,6 @@
-@import "../../../../config.scss";
+@import '../../../../config.scss';
 
 carousel {
-
   slide {
     height: 45vh;
   }
@@ -23,7 +22,7 @@ carousel {
     $blue-100: rgba(19, 78, 94, 100);
     $green-35: rgba(113, 178, 128, 0.35);
     $green-20: rgba(113, 178, 128, 0.2);
-    content: "";
+    content: '';
     display: block;
     position: absolute;
     top: 0;
@@ -32,7 +31,13 @@ carousel {
     right: 0;
     background: $blue-35;
     background: -moz-linear-gradient(left, $blue-35 0%, $green-35 100%);
-    -webkit-mask-background: -webkit-gradient(linear, left top, right top, from($blue-35), to(rgba(113, 178, 128, 0)));
+    -webkit-mask-background: -webkit-gradient(
+      linear,
+      left top,
+      right top,
+      from($blue-35),
+      to(rgba(113, 178, 128, 0))
+    );
     background: -webkit-linear-gradient(left, $blue-35 0%, $green-35 100%);
     background: -o-linear-gradient(left, $blue-100 0%, $green-20 100%);
     background: -ms-linear-gradient(left, $blue-100 0%, $green-20 100%);
@@ -40,4 +45,3 @@ carousel {
     filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#134e5e', endColorstr='#71b280', GradientType=1);
   }
 }
-

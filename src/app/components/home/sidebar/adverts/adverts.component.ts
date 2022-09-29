@@ -1,18 +1,16 @@
-import {Component, OnInit} from '@angular/core';
-import {Post} from '../../../../models/Post';
-import {PostService} from '../../../../services/post.service';
+import { Component, OnInit } from '@angular/core';
+import { Post } from '../../../../models/Post';
+import { PostService } from '../../../../services/post.service';
 
 @Component({
   selector: 'app-adverts',
   templateUrl: './adverts.component.html',
-  styleUrls: ['./adverts.component.scss']
+  styleUrls: ['./adverts.component.scss'],
 })
 export class AdvertsComponent implements OnInit {
   ads: Post[];
 
-  constructor(
-    private postService: PostService) {
-  }
+  constructor(private postService: PostService) {}
 
   ngOnInit() {
     this.getAds();
@@ -23,5 +21,4 @@ export class AdvertsComponent implements OnInit {
       this.ads = ads;
     });
   }
-
 }

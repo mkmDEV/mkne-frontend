@@ -7,7 +7,7 @@ import {
   TemplateRef,
   ViewChild,
 } from '@angular/core';
-import { Post } from '../../../../../models/Post';
+import { Post } from '@models/Post';
 import {
   faCalendar,
   faCheckCircle,
@@ -18,7 +18,7 @@ import {
   faTrash,
   faUser,
 } from '@fortawesome/free-solid-svg-icons';
-import { PostService } from '../../../../../services/post.service';
+import { PostService } from '@services/post.service';
 import { BsModalRef, BsModalService } from 'ngx-bootstrap/modal';
 
 @Component({
@@ -31,7 +31,7 @@ export class NewsItemComponent implements OnInit {
   @Output() deleted = new EventEmitter<Post>();
   @Output() updated = new EventEmitter<Post>();
   @ViewChild('postText', { static: false }) postText;
-  puli = 'http://mkne.hu/design/puli.gif';
+  puli = 'assets/images/puli.png';
   faTrash = faTrash;
   faPen = faPen;
   faUser = faUser;
@@ -50,7 +50,7 @@ export class NewsItemComponent implements OnInit {
 
   ngOnInit(): void {}
 
-  openModal(template: TemplateRef<any>) {
+  openModal(template: TemplateRef<unknown>) {
     this.modalRef = this.modalService.show(template);
   }
 

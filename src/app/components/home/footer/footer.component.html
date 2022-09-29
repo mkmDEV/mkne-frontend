@@ -1,54 +1,64 @@
 <div class="page-footer d-block pt-3 mt-5">
   <!-- Footer Links -->
   <div class="container text-center text-md-left mt-5">
-
     <!-- Grid row -->
     <div class="row mt-3">
-
       <!-- Grid column -->
       <div class="col-md-3 col-lg-5 col-xl-4 mx-auto mb-4">
-
         <!-- Content -->
-        <h6 class="text-uppercase font-weight-bold text-nowrap">{{COMPANY_NAME}}</h6>
-        <hr class="border-light accent-2 mb-4 mt-0 d-inline-block mx-auto" style="width: 60px;">
-        <p class="lead text-muted font-italic">{{MISSION}}</p>
-
+        <h6 class="text-uppercase font-weight-bold text-nowrap">
+          {{ COMPANY_NAME }}
+        </h6>
+        <hr
+          class="border-light accent-2 mb-4 mt-0 d-inline-block mx-auto"
+          style="width: 60px" />
+        <p class="lead text-muted font-italic">{{ MISSION }}</p>
       </div>
       <!-- Grid column -->
 
       <!-- Grid column -->
       <div class="col-md-2 col-lg-1 col-xl-2 mx-auto mb-4">
-
         <!-- Links -->
         <h6 class="text-uppercase font-weight-bold">Projects</h6>
-        <hr class="border-light accent-2 mb-4 mt-0 d-inline-block mx-auto" style="width: 60px;">
+        <hr
+          class="border-light accent-2 mb-4 mt-0 d-inline-block mx-auto"
+          style="width: 60px" />
         <p>
-          <a href="http://mkne.hu/iskolazoldites.php"
-             title="Az Iskolazöldítés évek óta egyesületünk egyik vezető programja. Feladata az iskolák környezetbaráttá alakításának segítése.">Iskolazöldítés</a>
+          <a
+            href="http://mkne.hu/iskolazoldites.php"
+            title="Az Iskolazöldítés évek óta egyesületünk egyik vezető programja. Feladata az iskolák környezetbaráttá alakításának segítése."
+            >Iskolazöldítés</a
+          >
         </p>
         <p>
-          <a href="http://mkne.hu/otthonazerdoben/"
-             title="A program célja, hogy a csatlakozó iskolák diákjai minél több időt töltsenek erdei környezetben, megszeressék a természetet, felismerjék a természeti értékeket, és mindeközben jól érezzék magukat.">Otthon
-            az erdőben!</a>
+          <a
+            href="http://mkne.hu/otthonazerdoben/"
+            title="A program célja, hogy a csatlakozó iskolák diákjai minél több időt töltsenek erdei környezetben, megszeressék a természetet, felismerjék a természeti értékeket, és mindeközben jól érezzék magukat."
+            >Otthon az erdőben!</a
+          >
         </p>
         <p>
           <a href="http://mkne.hu/kezedben_a_vilag/hu/home">Kezedben a világ</a>
         </p>
         <p>
-          <a href="http://www.vandortanosveny.hu/">Herman Ottó Vándortanösvény</a>
+          <a href="http://www.vandortanosveny.hu/"
+            >Herman Ottó Vándortanösvény</a
+          >
         </p>
-
       </div>
       <!-- Grid column -->
 
       <!-- Grid column -->
       <div class="col-md-3 col-lg-2 col-xl-2 mx-auto mb-4">
-
         <!-- Links -->
         <h6 class="text-uppercase font-weight-bold">Useful links</h6>
-        <hr class="border-light accent-2 mb-4 mt-0 d-inline-block mx-auto" style="width: 60px;">
+        <hr
+          class="border-light accent-2 mb-4 mt-0 d-inline-block mx-auto"
+          style="width: 60px" />
         <p>
-          <a href="https://mknemodszerkosar.wordpress.com/">Módszerkosár blog</a>
+          <a href="https://mknemodszerkosar.wordpress.com/"
+            >Módszerkosár blog</a
+          >
         </p>
         <p>
           <a href="http://mkne.hu/olvasnivalok.php">KÖR e-könyvek</a>
@@ -59,43 +69,46 @@
         <p>
           <a href="http://mkne.hu/tamogatas.php">Támogatás</a>
         </p>
-
       </div>
       <!-- Grid column -->
 
       <!-- Grid column -->
       <div class="col-md-4 col-lg-3 col-xl-3 mx-auto mb-md-0 mb-4">
-
         <!-- Links -->
         <h6 id="contact" class="text-uppercase font-weight-bold">Contact</h6>
-        <hr class="border-light accent-2 mb-4 mt-0 d-inline-block mx-auto" style="width: 60px;">
+        <hr
+          class="border-light accent-2 mb-4 mt-0 d-inline-block mx-auto"
+          style="width: 60px" />
         <p>
           <fa-icon size="sm" [fixedWidth]="true" [icon]="faHome"></fa-icon>
-          {{ COMPANY_ADDRESS }}</p>
+          {{ COMPANY_ADDRESS }}
+        </p>
         <p>
           <fa-icon size="sm" [fixedWidth]="true" [icon]="faBuilding"></fa-icon>
-          {{ OFFICE_ADDRESS }}</p>
+          {{ OFFICE_ADDRESS }}
+        </p>
         <p>
           <fa-icon size="sm" [fixedWidth]="true" [icon]="faEnvelope"></fa-icon>
-          {{ COMPANY_EMAIL }}</p>
+          {{ COMPANY_EMAIL }}
+        </p>
         <p>
           <fa-icon size="sm" [fixedWidth]="true" [icon]="faPhone"></fa-icon>
-          {{ COMPANY_PHONE }}</p>
+          {{ COMPANY_PHONE }}
+        </p>
         <p>
           <fa-icon size="sm" [fixedWidth]="true" [icon]="faMobile"></fa-icon>
-          {{ COMPANY_MOBILE }}</p>
-
+          {{ COMPANY_MOBILE }}
+        </p>
       </div>
       <!-- Grid column -->
-
     </div>
     <!-- Grid row -->
-
   </div>
   <!-- Footer Links -->
 
   <!-- Copyright -->
-  <div class="footer-copyright text-center py-3">&copy; {{ CURRENT_YEAR }} Copyright:
+  <div class="footer-copyright text-center py-3">
+    &copy; {{ CURRENT_YEAR }} Copyright:
     <a [routerLink]="['']">MKNE</a>
   </div>
   <!-- Copyright -->

@@ -1,18 +1,18 @@
-import {Component, OnInit, ViewChild} from '@angular/core';
-import {NgForm} from '@angular/forms';
-import {PostService} from '../../../../../../services/post.service';
-import {MemberService} from '../../../../../../services/member.service';
-import {faPlusCircle} from '@fortawesome/free-solid-svg-icons';
-import {Member} from '../../../../../../models/Member';
-import {Router} from '@angular/router';
+import { Component, OnInit, ViewChild } from '@angular/core';
+import { NgForm } from '@angular/forms';
+import { PostService } from '../../../../../../services/post.service';
+import { MemberService } from '../../../../../../services/member.service';
+import { faPlusCircle } from '@fortawesome/free-solid-svg-icons';
+import { Member } from '../../../../../../models/Member';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-add-news',
   templateUrl: './add-news.component.html',
-  styleUrls: ['./add-news.component.scss']
+  styleUrls: ['./add-news.component.scss'],
 })
 export class AddNewsComponent implements OnInit {
-  @ViewChild('f', {static: false}) newPostForm: NgForm;
+  @ViewChild('f', { static: false }) newPostForm: NgForm;
   faPlus = faPlusCircle;
   categories: string[] = [];
   loggedInUsername = '';
@@ -25,15 +25,14 @@ export class AddNewsComponent implements OnInit {
     isPublished: false,
     publishDate: null,
     category: '',
-    postBody: ''
+    postBody: '',
   };
 
   constructor(
     private postService: PostService,
     private memberService: MemberService,
-    private route: Router,
-  ) {
-  }
+    private route: Router
+  ) {}
 
   ngOnInit() {
     this.initForm();
@@ -60,9 +59,8 @@ export class AddNewsComponent implements OnInit {
   }
 
   private getCategories() {
-    this.postService.getCategories().subscribe(
-      (categories: string[]) => {
-        this.categories = categories;
-      });
+    this.postService.getCategories().subscribe((categories: string[]) => {
+      this.categories = categories;
+    });
   }
 }

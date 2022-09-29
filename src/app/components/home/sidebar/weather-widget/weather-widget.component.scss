@@ -1,9 +1,9 @@
 .weather-card {
   .degree:after {
-    content: "°C";
+    content: '°C';
     position: absolute;
     font-size: 3rem;
-    margin-top: .9rem;
+    margin-top: 0.9rem;
     font-weight: 400;
   }
 }

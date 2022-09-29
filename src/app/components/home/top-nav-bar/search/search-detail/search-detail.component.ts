@@ -1,12 +1,12 @@
-import {Component, OnDestroy, OnInit} from '@angular/core';
-import {ActivatedRoute} from '@angular/router';
-import {Post} from '../../../../../models/Post';
-import {PostService} from '../../../../../services/post.service';
+import { Component, OnDestroy, OnInit } from '@angular/core';
+import { ActivatedRoute } from '@angular/router';
+import { Post } from '../../../../../models/Post';
+import { PostService } from '../../../../../services/post.service';
 
 @Component({
   selector: 'app-search-detail',
   templateUrl: './search-detail.component.html',
-  styleUrls: ['./search-detail.component.scss']
+  styleUrls: ['./search-detail.component.scss'],
 })
 export class SearchDetailComponent implements OnInit, OnDestroy {
   private routeSub: any;
@@ -16,8 +16,7 @@ export class SearchDetailComponent implements OnInit, OnDestroy {
   constructor(
     private route: ActivatedRoute,
     private postService: PostService
-  ) {
-  }
+  ) {}
 
   ngOnInit() {
     this.routeSub = this.route.params.subscribe(params => {

@@ -1,17 +1,14 @@
-import {Injectable} from '@angular/core';
-import {HttpClient, HttpParams} from '@angular/common/http';
-import {Observable} from 'rxjs';
-import {environment} from '../../environments/environment';
+import { Injectable } from '@angular/core';
+import { HttpClient, HttpParams } from '@angular/common/http';
+import { Observable } from 'rxjs';
+import { environment } from '../../environments/environment';
 
 @Injectable()
 export class WeatherService {
-
   readonly API_KEY = environment.WEATHER_API_KEY;
   readonly ENDPOINT_URL = environment.WEATHER_API_URL;
 
-  constructor(
-    private http: HttpClient) {
-  }
+  constructor(private http: HttpClient) {}
 
   getWeatherDataByCoords(lat: number, lon: number): Observable<any> {
     let params: HttpParams = new HttpParams();
@@ -21,6 +18,6 @@ export class WeatherService {
     params = params.set('lang', 'hu');
     params = params.set('appid', this.API_KEY);
 
-    return this.http.get(this.ENDPOINT_URL, {params});
+    return this.http.get(this.ENDPOINT_URL, { params });
   }
 }

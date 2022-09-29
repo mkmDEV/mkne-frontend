@@ -1,4 +1,4 @@
-@import "../../../../../config.scss";
+@import '../../../../../config.scss';
 
 .logo {
   width: 8vw;
@@ -9,7 +9,8 @@
   text-shadow: 0.1vw 0.1vw rgba(35, 69, 3, 0.3);
   position: relative;
 
-  &::before, &::after {
+  &::before,
+  &::after {
     content: attr(data-logo);
     width: 100%;
     text-align: center;
