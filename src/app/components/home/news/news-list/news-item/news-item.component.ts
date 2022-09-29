@@ -1,5 +1,13 @@
-import {Component, EventEmitter, Input, OnInit, Output, TemplateRef, ViewChild} from '@angular/core';
-import {Post} from '../../../../../models/Post';
+import {
+  Component,
+  EventEmitter,
+  Input,
+  OnInit,
+  Output,
+  TemplateRef,
+  ViewChild,
+} from '@angular/core';
+import { Post } from '../../../../../models/Post';
 import {
   faCalendar,
   faCheckCircle,
@@ -8,21 +16,21 @@ import {
   faPen,
   faTimesCircle,
   faTrash,
-  faUser
+  faUser,
 } from '@fortawesome/free-solid-svg-icons';
-import {PostService} from '../../../../../services/post.service';
-import {BsModalRef, BsModalService} from 'ngx-bootstrap';
+import { PostService } from '../../../../../services/post.service';
+import { BsModalRef, BsModalService } from 'ngx-bootstrap/modal';
 
 @Component({
   selector: 'app-news-item',
   templateUrl: './news-item.component.html',
-  styleUrls: ['./news-item.component.scss']
+  styleUrls: ['./news-item.component.scss'],
 })
 export class NewsItemComponent implements OnInit {
   @Input() news: Post;
   @Output() deleted = new EventEmitter<Post>();
   @Output() updated = new EventEmitter<Post>();
-  @ViewChild('postText', {static: false}) postText;
+  @ViewChild('postText', { static: false }) postText;
   puli = 'http://mkne.hu/design/puli.gif';
   faTrash = faTrash;
   faPen = faPen;
@@ -37,11 +45,10 @@ export class NewsItemComponent implements OnInit {
 
   constructor(
     private postService: PostService,
-    private modalService: BsModalService) {
-  }
+    private modalService: BsModalService
+  ) {}
 
-  ngOnInit() {
-  }
+  ngOnInit(): void {}
 
   openModal(template: TemplateRef<any>) {
     this.modalRef = this.modalService.show(template);
