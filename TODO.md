@@ -18,3 +18,4 @@
 - [ ] `FEATURE` ~~__Translate__ the whole page to Hungarian instead of Englis due it's content~~
 - [ ] `REFACTOR` ~~transfer __carousel__ from burnt-in to \*ngFor style~~
 - [ ] `REFACTOR` Refactor main and home structure
+- [ ] `TODO` `ng add @angular/localize`

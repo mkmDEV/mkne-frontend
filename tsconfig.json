@@ -17,6 +17,7 @@
       "@environments/*": ["./src/environments/*"],
       "@assets/*": ["./src/assets/*"],
       "@models/*": ["./src/app/models/*"],
+      "@components/*": ["./src/app/components/*"],
       "@services/*": ["./src/app/services/*"]
     },
     "target": "es2015",
