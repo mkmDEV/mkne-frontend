@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { Post } from '../../../../models/Post';
-import { PostService } from '../../../../services/post.service';
+import { Post } from '@models/Post';
+import { PostService } from '@services/post.service';
 
 @Component({
   selector: 'app-news-list',

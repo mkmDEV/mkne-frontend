@@ -19,7 +19,10 @@ import {
   faUser,
 } from '@fortawesome/free-solid-svg-icons';
 import { PostService } from '@services/post.service';
-import { BsModalRef, BsModalService } from 'ngx-bootstrap/modal';
+import {
+  NgbModal as NgbModalService,
+  NgbModalRef,
+} from '@ng-bootstrap/ng-bootstrap';
 
 @Component({
   selector: 'app-news-item',
@@ -41,22 +44,22 @@ export class NewsItemComponent implements OnInit {
   faTimesCircle = faTimesCircle;
   faCheckCircle = faCheckCircle;
   editable = false;
-  modalRef = BsModalRef.prototype;
+  modalRef = NgbModalRef.prototype;
 
   constructor(
     private postService: PostService,
-    private modalService: BsModalService
+    private modalService: NgbModalService
   ) {}
 
   ngOnInit(): void {}
 
   openModal(template: TemplateRef<unknown>) {
-    this.modalRef = this.modalService.show(template);
+    this.modalRef = this.modalService.open(template);
   }
 
   onDelete(news: Post) {
     this.deleted.emit(news);
-    this.modalRef.hide();
+    this.modalRef.close();
   }
 
   onEdit(news: Post) {

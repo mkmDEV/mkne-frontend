@@ -2,15 +2,15 @@ import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 
 @Component({
-  selector: 'app-top-nav-bar',
-  templateUrl: './top-nav-bar.component.html',
-  styleUrls: ['./top-nav-bar.component.scss'],
+  selector: 'app-header',
+  templateUrl: './header.component.html',
+  styleUrls: ['./header.component.scss'],
 })
-export class TopNavBarComponent implements OnInit {
+export class HeaderComponent implements OnInit {
   title: string;
   query: string;
-  private routeSub: any;
   navbarOpen = false;
+  private routeSub: any;
 
   constructor(private route: ActivatedRoute) {
     this.routeSub = route.params.subscribe(params => {

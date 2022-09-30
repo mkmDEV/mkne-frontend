@@ -3,21 +3,21 @@
   <div class="row justify-content-center">
     <div class="col-lg-12">
       <div class="add-post">
-        <form (ngSubmit)="onSubmit(f)" #f="ngForm">
+        <form #f="ngForm" (ngSubmit)="onSubmit(f)">
           <div
+            #newPostData="ngModelGroup"
             class="new-post-data"
-            ngModelGroup="newPostData"
-            #newPostData="ngModelGroup">
+            ngModelGroup="newPostData">
             <div class="row mt-5">
               <div
                 class="input-group custom-control custom-switch mb-3 pr-3 text-lg-right">
                 <input
+                  [(ngModel)]="isPublished"
+                  aria-label="Publish"
                   class="custom-control-input"
                   id="new-post-is-published"
                   name="isPublished"
-                  type="checkbox"
-                  aria-label="Publish"
-                  [(ngModel)]="isPublished" />
+                  type="checkbox" />
                 <label class="custom-control-label" for="new-post-is-published"
                   >Publish</label
                 >
@@ -28,13 +28,13 @@
                     <span class="input-group-text">Author</span>
                   </div>
                   <input
+                    [(ngModel)]="loggedInUsername"
+                    aria-label="author"
                     class="form-control form-control-lg"
                     id="new-post-author"
                     name="author"
-                    type="text"
-                    aria-label="author"
-                    [(ngModel)]="loggedInUsername"
-                    readonly />
+                    readonly
+                    type="text" />
                 </div>
               </div>
               <div class="col-lg-8">
@@ -43,25 +43,25 @@
                     <span class="input-group-text">Title</span>
                   </div>
                   <input
+                    aria-label="Title"
                     class="form-control form-control-lg"
                     id="new-post-title"
                     name="title"
-                    type="text"
-                    aria-label="Title"
+                    ngModel
                     placeholder="New Post"
-                    ngModel />
+                    type="text" />
                 </div>
                 <div class="input-group mb-3">
                   <label class="input-group-text" for="new-post-category"
                     >Category</label
                   >
                   <select
+                    #category="ngModel"
+                    [(ngModel)]="categories[0]"
+                    aria-label="Category"
                     class="form-control custom-select custom-select-lg"
                     id="new-post-category"
                     name="category"
-                    aria-label="Category"
-                    #category="ngModel"
-                    [(ngModel)]="categories[0]"
                     required>
                     <option
                       *ngFor="let category of categories"
@@ -70,40 +70,40 @@
                     </option>
                   </select>
                 </div>
-                <alert
-                  type="danger"
-                  class="small form-text ml-2"
+                <ngb-alert
                   *ngIf="!category.valid && category.touched"
+                  class="small form-text ml-2"
+                  type="danger"
                   >Please choose a category!
-                </alert>
+                </ngb-alert>
                 <div class="input-group mb-3">
                   <div class="input-group-prepend">
                     <span class="input-group-text">Post</span>
                   </div>
                   <textarea
+                    #postBody="ngModel"
+                    aria-label="Text area for new post's body"
                     class="form-control"
                     id="new-post-body"
                     name="postBody"
-                    aria-label="Text area for new post's body"
-                    #postBody="ngModel"
-                    rows="3"
                     ngModel
-                    required>
+                    required
+                    rows="3">
                   </textarea>
                 </div>
-                <alert
-                  type="danger"
+                <ngb-alert
+                  *ngIf="!postBody.valid && postBody.touched"
                   class="fade show"
-                  *ngIf="!postBody.valid && postBody.touched">
+                  type="danger">
                   <strong>An error occurred!</strong> Post can not be empty.
-                </alert>
+                </ngb-alert>
               </div>
             </div>
           </div>
           <button
+            [disabled]="!f.valid"
             class="btn btn-lg btn-success float-right"
-            type="submit"
-            [disabled]="!f.valid">
+            type="submit">
             <fa-icon [icon]="faPlus"></fa-icon>
             Save post
           </button>

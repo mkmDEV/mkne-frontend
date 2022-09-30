@@ -1,5 +1,5 @@
 @import url('https://fonts.googleapis.com/css?family=Roboto&display=swap');
-@import '../../../../config.scss';
+@import '../../../../variables';
 
 .navbar-nav {
   .nav-item {
@@ -7,7 +7,7 @@
     font-style: normal;
     font-weight: 500;
     font-size: 18px;
-    color: $navbar-color;
+    color: $black-pearl; // fixme: Use Bootstrap $dark color
     text-transform: uppercase;
     line-height: 138.6%;
     display: flex;

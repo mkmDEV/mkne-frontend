@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { CarouselConfig } from 'ngx-bootstrap/carousel';
+import { NgbCarouselConfig } from '@ng-bootstrap/ng-bootstrap';
 
 @Component({
   selector: 'app-carousel',
@@ -7,7 +7,7 @@ import { CarouselConfig } from 'ngx-bootstrap/carousel';
   styleUrls: ['./carousel.component.scss'],
   providers: [
     {
-      provide: CarouselConfig,
+      provide: NgbCarouselConfig,
       useValue: { interval: 3000, noPause: true, showIndicators: true },
     },
   ],
