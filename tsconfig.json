@@ -11,36 +11,17 @@
     "moduleResolution": "node",
     "importHelpers": true,
     "paths": {
-      "*": [
-        "src/*"
-      ],
-      "$utility/*": [
-        "src/utility/*"
-      ],
-      "$themes/*": [
-        "./src/themes/*"
-      ],
-      "@environments/*": [
-        "./src/environments/*"
-      ],
-      "@assets/*": [
-        "./src/assets/*"
-      ],
-      "@models/*": [
-        "./src/app/models/*"
-      ],
-      "@services/*": [
-        "./src/app/services/*"
-      ]
+      "*": ["src/*"],
+      "$utility/*": ["src/utility/*"],
+      "$themes/*": ["./src/themes/*"],
+      "@environments/*": ["./src/environments/*"],
+      "@assets/*": ["./src/assets/*"],
+      "@models/*": ["./src/app/models/*"],
+      "@services/*": ["./src/app/services/*"]
     },
     "target": "es2015",
-    "typeRoots": [
-      "node_modules/@types"
-    ],
-    "lib": [
-      "es2018",
-      "dom"
-    ]
+    "typeRoots": ["node_modules/@types"],
+    "lib": ["es2018", "dom"]
   },
   "angularCompilerOptions": {
     "enableIvy": true,

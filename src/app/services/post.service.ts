@@ -39,20 +39,20 @@ export class PostService {
     );
   }
 
- , findPosts(q: string): Observable<Post[]> {
+  findPosts(q: string): Observable<Post[]> {
     const params = new HttpParams().set('q', q);
     return this.http
       .get<Post[]>(this.api.POSTS_URL + '/search', { params })
       .pipe(
         tap(() => PostService.log('found posts')),
-        catchError(this.handleError<Post[]>('findPosts', [])),
+        catchError(this.handleError<Post[]>('findPosts', []))
       );
   }
 
   getAds(): Observable<Post[]> {
     return this.http.get<Post[]>(`${this.api.POSTS_URL}/ads`).pipe(
       tap(() => PostService.log('fetched ads')),
-      catchError(this.handleError<Post[]>('getAds', [])),
+      catchError(this.handleError<Post[]>('getAds', []))
     );
   }
 
@@ -63,14 +63,14 @@ export class PostService {
   getNews(): Observable<Post[]> {
     return this.http.get<Post[]>(this.api.NEWS_URL).pipe(
       tap(() => PostService.log('fetched news')),
-      catchError(this.handleError<Post[]>('getNews', [])),
+      catchError(this.handleError<Post[]>('getNews', []))
     );
   }
 
   getNewsItem(id): Observable<Post> {
     return this.http.get<Post>(`${this.api.NEWS_URL}/${id}`).pipe(
       tap(() => PostService.log(`fetched news with id ${id}`)),
-      catchError(this.handleError<Post>('getNewsItem')),
+      catchError(this.handleError<Post>('getNewsItem'))
     );
   }
 
@@ -79,7 +79,7 @@ export class PostService {
       .put<Post>(`${this.api.POSTS_URL}/${news.id}`, news, this.httpOptions)
       .pipe(
         tap(() => PostService.log(`updated product id=${news.id}`)),
-        catchError(this.handleError<any>('updateNews')),
+        catchError(this.handleError<any>('updateNews'))
       );
   }
 
