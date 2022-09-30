@@ -1,4 +1,4 @@
-@import '../../../../../config.scss';
+@import '../../../../../variables';
 
 .logo {
   width: 8vw;
@@ -21,7 +21,7 @@
   }
 
   &::before {
-    color: $mkne-accent;
+    color: $minty-green;
   }
 
   &::after {

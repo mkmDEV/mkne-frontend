@@ -1,7 +1,7 @@
-@import '../../../../config';
+@import '../../../../variables';
 
 .page-footer {
-  background-color: $footer-background;
+  background-color: $black-pearl; // fixme: Use Bootstrap $dark color
   color: $white;
   font-size: 0.9rem;
 }

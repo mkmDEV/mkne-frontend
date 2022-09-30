@@ -1,11 +1,11 @@
-@import '../../../../../../../config.scss';
+@import '../../../../../../../variables';
 
 .container {
   padding-top: 2.5vh;
 
   .add-post {
     .form-control.ng-invalid.ng-touched {
-      border: 1px solid $red;
+      border: 1px solid $red-orange; // fixme: Use Bootstrap $danger color
     }
   }
 }
