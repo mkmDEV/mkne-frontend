@@ -14,7 +14,7 @@
       "*": ["src/*"],
       "$utility/*": ["src/utility/*"],
       "$themes/*": ["./src/themes/*"],
-      "@environments/*": ["./src/environments/*"],
+      "@env/*": ["./src/environments/*"],
       "@assets/*": ["./src/assets/*"],
       "@models/*": ["./src/app/models/*"],
       "@components/*": ["./src/app/components/*"],
