@@ -3,4 +3,8 @@
 @import 'bootstrap_settings';
 
 /* Importing Bootstrap SCSS file. */
-@import '~bootstrap/scss/bootstrap';
+@import './node_modules/bootstrap/scss/bootstrap';
+
+.filter-white {
+  filter: invert(48%) sepia(79%) saturate(2476%) hue-rotate(86deg) brightness(118%) contrast(119%)
+}

@@ -1,5 +1,7 @@
 import { Component } from '@angular/core';
 import { Meta, Title } from '@angular/platform-browser';
+import * as moment from 'moment';
+import { environment } from '@env/environment';
 
 @Component({
   selector: 'app-root',
@@ -23,5 +25,7 @@ export class AppComponent {
       true
     );
     meta.addTag({ name: 'author', content: 'MARSI, Kristóf Mátyás' }, true);
+
+    moment.locale(environment.locale);
   }
 }

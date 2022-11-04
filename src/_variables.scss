@@ -1,16 +1,39 @@
-$p5: 5vw;
+$white: #ffffff;
 
-/* Color definitions */
-$white: rgb(255, 255, 255);
-$red: rgb(255, 0, 0);
+$light:     #f7f9f2;
+$dark:      #1e272e;
+$primary:   #406c35;
+$secondary: #a4af97;
+$info:      #5b70ff;
+$success:   #0aad00;
+$warning:   #fac400;
+$danger:    #f23942;
 
-$green-teal: #05c46b;
-$minty-green: #0be881;
-$megaman: #4bcffa;
-$warning-orange: #ffc048;
-$red-orange: #ff3f34;
-$black-pearl: #1e272e;
-$london-square: #808e9b;
-$hint-of-elusive-blue: #d2dae2;
 
+$theme-colors: (
+  "light":      $light,
+  "dark":       $dark,
+  "primary":    $primary,
+  "secondary":  $secondary,
+  "info":       $info,
+  "success":    $success,
+  "warning":    $warning,
+  "danger":     $danger,
+);
+
+$spacer: 1rem;
+$spacers: (
+  0: 0,
+  1: $spacer * .25,
+  2: $spacer * .5,
+  3: $spacer,
+  4: $spacer * 1.5,
+  5: $spacer * 2,
+  6: $spacer * 3,
+  7: $spacer * 4
+);
+
+$enable-shadows: true;
+$enable-gradients: true;
+$modal-content-border-width: 0;
 
